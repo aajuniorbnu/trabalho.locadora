@@ -5,22 +5,217 @@
 <link rel="stylesheet" href="/css/veiculos-categoria.css">
 </head>
 <body>
+  <header>
+  <div class="header-brand">
+    <div class="header-logo">🚗</div>
+    <span>Locadora de Veículos</span>
+  </div>
+  <div class="header-actions">
+    <button class="btn-tema" onclick="toggleTema()">
+      <span id="temaIcon">🌙</span>
+      <span id="temaLabel">Modo escuro</span>
+    </button>
+    <div class="header-avatar" title="Usuário">AD</div>
+  </div>
+</header>
+ 
 
-<h2>Veículos</h2>
-<div class="form">
-  <input id="modelo" placeholder="Modelo do veículo">
-  <input id="ano" placeholder="Ano">
-  <select id="categoriaId"></select>
-  <button onclick="salvarVeiculo()">Salvar</button>
-</div>
+<aside class="sidebar">
+  <nav>
+    <div class="nav-section">
+      <div class="nav-section-label">Principal</div>
+      <a href="/dashboard.html">
+        <span class="nav-icon">📊</span> Dashboard
+      </a>
+      <a href="/veiculos" class="active">
+        <span class="nav-icon">🚗</span> Veículos
+        <span class="nav-badge" id="badgeVeiculos">0</span>
+      </a>
+      <a href="/motoristas">
+        <span class="nav-icon">👤</span> Motoristas
+      </a>
+      <a href="/categorias.html">
+        <span class="nav-icon">🏷️</span> Categorias
+      </a>
+    </div>
+ 
+    <div class="nav-divider"></div>
+ 
+    <div class="nav-section">
+      <div class="nav-section-label">Operação</div>
+      <a href="/locacoes">
+        <span class="nav-icon">📋</span> Locações
+      </a>
+      <a href="/devolucoes">
+        <span class="nav-icon">↩️</span> Devoluções
+      </a>
+      <a href="/manutencao">
+        <span class="nav-icon">🔧</span> Manutenção
+      </a>
+    </div>
+ 
+    <div class="nav-divider"></div>
+ 
+    <div class="nav-section">
+      <div class="nav-section-label">Relatórios</div>
+      <a href="/financeiro">
+        <span class="nav-icon">💰</span> Financeiro
+      </a>
+      <a href="/relatorios">
+        <span class="nav-icon">📈</span> Relatórios
+      </a>
+    </div>
+  </nav>
+ 
+  <div class="sidebar-footer">
+    <a href="/configuracoes">
+      <span class="nav-icon">⚙️</span> Configurações
+    </a>
+    <a href="/ajuda">
+      <span class="nav-icon">❓</span> Ajuda
+    </a>
+  </div>
+</aside>
+ 
 
-<table>
-<thead>
-<tr><th>ID</th><th>Modelo</th><th>Ano</th><th>Categoria</th><th>Ações</th></tr>
-</thead>
-<tbody id="tabelaVeiculos"></tbody>
-</table>
+<main>
+ 
 
-<script src="/js/veiculos.js"></script>
-</body>
-</html>
+  <div class="page-header">
+    <div>
+      <div class="page-title">Veículos</div>
+      <div class="page-subtitle">Cadastro e gerenciamento da frota</div>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button class="btn btn-ghost">⬇ Exportar</button>
+    </div>
+  </div>
+ 
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <div class="card-title-icon">➕</div>
+        Novo Veículo
+      </div>
+      <button class="btn btn-ghost" onclick="limparFormulario()" style="font-size:12px;padding:5px 10px;">
+        ✕ Limpar
+      </button>
+    </div>
+ 
+    <div class="card-body">
+      <!-- Linha 1: Modelo (largo), Placa, Ano -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Modelo do veículo <span class="required">*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">🚗</span>
+            <input id="modelo" type="text" class="with-icon" placeholder="Ex: Toyota Corolla XEi 2.0" autocomplete="off">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Placa <span class="required">*</span></label>
+          <input id="placa" type="text" placeholder="ABC-1234" maxlength="8" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label>Ano <span class="required">*</span></label>
+          <input id="ano" type="number" placeholder="2024" min="1990" max="2030">
+        </div>
+      </div>
+ 
+      <!-- Linha 2: Categoria, Cor, Status, Km -->
+      <div class="form-row" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+        <div class="form-group">
+          <label>Categoria <span class="required">*</span></label>
+          <select id="categoriaId">
+            <option value="">Selecione...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Combustível</label>
+          <select id="combustivel">
+            <option value="">Selecione...</option>
+            <option value="flex">Flex</option>
+            <option value="gasolina">Gasolina</option>
+            <option value="etanol">Etanol</option>
+            <option value="diesel">Diesel</option>
+            <option value="eletrico">Elétrico</option>
+            <option value="hibrido">Híbrido</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select id="status">
+            <option value="ativo">Ativo</option>
+            <option value="inativo">Inativo</option>
+            <option value="manutencao">Manutenção</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Km atual</label>
+          <div class="input-wrap">
+            <input id="km" type="number" placeholder="0" min="0">
+            <span class="input-suffix">km</span>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="form-actions">
+      <button class="btn btn-primary" onclick="salvarVeiculo()">💾 Salvar veículo</button>
+      <button class="btn btn-ghost" onclick="limparFormulario()">Cancelar</button>
+      <span class="form-note">Campos com <span style="color:#d04a2e;font-size:13px;">*</span> são obrigatórios</span>
+    </div>
+  </div>
+ 
+  <!-- Table Card -->
+  <div class="card">
+    <div class="table-toolbar">
+      <div class="card-title">
+        <div class="card-title-icon">📋</div>
+        Frota cadastrada
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="campoBusca" placeholder="Buscar veículo..." oninput="filtrarTabela()">
+        </div>
+        <span class="table-count" id="totalCount">0 veículos</span>
+      </div>
+    </div>
+ 
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Modelo</th>
+            <th>Placa</th>
+            <th>Ano</th>
+            <th>Categoria</th>
+            <th>Combustível</th>
+            <th>Km</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaVeiculos">
+          <tr>
+            <td colspan="9">
+              <div class="empty-state">
+                <div class="empty-state-icon">🚗</div>
+                <div class="empty-state-text">Nenhum veículo cadastrado ainda</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
+</main>
+ 
+
+<div class="toast" id="toast"></div>
+ 
+<script>
