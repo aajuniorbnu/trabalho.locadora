@@ -1,0 +1,25 @@
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Categorias</title>
+<link rel="stylesheet" href="/css/veiculos-categoria.css">
+</head>
+<body>
+
+<h2>Categorias</h2>
+<div class="form">
+  <input id="nome" placeholder="Nome da categoria">
+  <input id="descricao" placeholder="Descrição">
+  <button onclick="salvarCategoria()">Salvar</button>
+</div>
+
+<table>
+<thead>
+<tr><th>ID</th><th>Nome</th><th>Descrição</th><th>Ações</th></tr>
+</thead>
+<tbody id="tabelaCategorias"></tbody>
+</table>
+
+<script src="/js/categorias.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Veículos</title>
+<link rel="stylesheet" href="/css/veiculos-categoria.css">
+</head>
+<body>
+
+<h2>Veículos</h2>
+<div class="form">
+  <input id="modelo" placeholder="Modelo do veículo">
+  <input id="ano" placeholder="Ano">
+  <select id="categoriaId"></select>
+  <button onclick="salvarVeiculo()">Salvar</button>
+</div>
+
+<table>
+<thead>
+<tr><th>ID</th><th>Modelo</th><th>Ano</th><th>Categoria</th><th>Ações</th></tr>
+</thead>
+<tbody id="tabelaVeiculos"></tbody>
+</table>
+
+<script src="/js/veiculos.js"></script>
+</body>
+</html>
