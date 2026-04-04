@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/locacoes.css">
+  <title>Locações</title>
+</head>
+<body>
+
+<header>
+  <div class="logo">🚗 Locadora</div>
+  <div class="header-actions">
+    <button class="btn-tema" id="theme-toggle">
+      <span id="theme-icon">🌙</span>
+      <span id="theme-text">Escuro</span>
+    </button>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <nav>
+    <a href="#">📊 Dashboard</a>
+    <a href="#" class="active">🚗 Locações</a>
+    <a href="#">🚙 Veículos</a>
+  </nav>
+</aside>
+
+<main>
+
+  <div class="page-header">
+    <div>
+      <h1>Locações</h1>
+      <p class="page-subtitle">Cadastro e gerenciamento de locações</p>
+    </div>
+    <button class="btn secondary">📤 Exportar</button>
+  </div>
+
+  <!-- CARD FORM -->
+  <div class="card">
+    <div class="card-header">
+      <h2>
+        <span class="icon-plus">➕</span>
+        Nova Locação
+      </h2>
+      <button class="btn-clear" title="Limpar formulário">✕ Limpar</button>
+    </div>
+
+    <form class="form-grid">
+      <!-- Primeira linha: Cliente, Veículo, Data Inicial -->
+      <div class="form-group">
+        <label for="campo-nome">Cliente <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="text" id="campo-nome" class="with-icon" placeholder="Ex: João Silva">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-veiculo">Veículo <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="text" id="campo-veiculo" class="with-icon" placeholder="Ex: Honda Civic">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-data-inicial">Data Inicial <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="date" id="campo-data-inicial" class="with-icon">
+        </div>
+      </div>
+
+      <!-- Segunda linha: Categoria, Combustível, Data Final -->
+      <div class="form-group">
+        <label for="campo-categoria">Categoria <span class="required">*</span></label>
+        <div class="input-wrap">
+          <select id="campo-categoria" class="with-icon">
+            <option value="">Selecione...</option>
+            <option value="economico">Econômico</option>
+            <option value="executivo">Executivo</option>
+            <option value="premium">Premium</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-combustivel">Combustível</label>
+        <div class="input-wrap">
+          <select id="campo-combustivel" class="with-icon">
+            <option value="">Selecione...</option>
+            <option value="gasolina">Gasolina</option>
+            <option value="diesel">Diesel</option>
+            <option value="etanol">Etanol</option>
+            <option value="hibrido">Híbrido</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-data-final">Data Final <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="date" id="campo-data-final" class="with-icon">
+        </div>
+      </div>
+
+      <!-- Terceira linha: Valor por dia, Status, Valor Total -->
+      <div class="form-group">
+        <label for="campo-valor-dia">Valor por dia <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="number" id="campo-valor-dia" class="with-icon" placeholder="0.00" step="0.01">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-status">Status</label>
+        <div class="input-wrap">
+          <select id="campo-status" class="with-icon">
+            <option value="">Selecione...</option>
+            <option value="ativa">Ativa</option>
+            <option value="finalizada">Finalizada</option>
+            <option value="cancelada">Cancelada</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-valor-total">Valor Total <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="number" id="campo-valor-total" class="with-icon" placeholder="0.00" step="0.01" readonly>
+        </div>
+      </div>
+    </form>
+
+    <div class="card-footer">
+      <div class="form-actions">
+        <button type="button" class="btn primary">
+          <span class="btn-icon-save">💾</span>
+          Salvar Locação
+        </button>
+        <button type="button" class="btn secondary">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CARD TABELA -->
+  <div class="card">
+    <div class="card-header flex">
+      <h2>
+        <span class="icon-list">📋</span>
+        Locações cadastradas
+      </h2>
+
+      <div class="table-toolbar">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-locacoes" placeholder="Buscar locação...">
+        </div>
+        <select id="filtro-status">
+          <option value="">Todas</option>
+          <option value="ativa">Ativas</option>
+          <option value="finalizada">Finalizadas</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Veículo</th>
+            <th>Categoria</th>
+            <th>Valor Dia</th>
+            <th>Valor Total</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody id="lista-locacoes">
+          <!-- Dados de exemplo -->
+          <tr>
+            <td>João Silva</td>
+            <td>Honda Civic</td>
+            <td>Executivo</td>
+            <td>R$ 150,00</td>
+            <td>R$ 750,00</td>
+            <td><span class="status-badge ativo">● Ativa</span></td>
+            <td>
+              <div class="actions">
+                <button class="btn-icon edit" title="Editar" aria-label="Editar locação">✏️</button>
+                <button class="btn-icon complete" title="Finalizar" aria-label="Finalizar locação">✓</button>
+                <button class="btn-icon del" title="Remover" aria-label="Remover locação">🗑️</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Maria Santos</td>
+            <td>Fiat Uno</td>
+            <td>Econômico</td>
+            <td>R$ 80,00</td>
+            <td>R$ 240,00</td>
+            <td><span class="status-badge ativo">● Ativa</span></td>
+            <td>
+              <div class="actions">
+                <button class="btn-icon edit" title="Editar" aria-label="Editar locação">✏️</button>
+                <button class="btn-icon complete" title="Finalizar" aria-label="Finalizar locação">✓</button>
+                <button class="btn-icon del" title="Remover" aria-label="Remover locação">🗑️</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Pedro Oliveira</td>
+            <td>Toyota Corolla</td>
+            <td>Executivo</td>
+            <td>R$ 180,00</td>
+            <td>R$ 900,00</td>
+            <td><span class="status-badge finalizado">● Finalizada</span></td>
+            <td>
+              <div class="actions">
+                <button class="btn-icon edit" title="Editar" aria-label="Editar locação">✏️</button>
+                <button class="btn-icon complete" title="Finalizar" aria-label="Finalizar locação">✓</button>
+                <button class="btn-icon del" title="Remover" aria-label="Remover locação">🗑️</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Ana Costa</td>
+            <td>Volkswagen Golf</td>
+            <td>Executivo</td>
+            <td>R$ 200,00</td>
+            <td>R$ 600,00</td>
+            <td><span class="status-badge ativo">● Ativa</span></td>
+            <td>
+              <div class="actions">
+                <button class="btn-icon edit" title="Editar" aria-label="Editar locação">✏️</button>
+                <button class="btn-icon complete" title="Finalizar" aria-label="Finalizar locação">✓</button>
+                <button class="btn-icon del" title="Remover" aria-label="Remover locação">🗑️</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<script src="js/theme.js"></script>
+
+</body>
+</html>
