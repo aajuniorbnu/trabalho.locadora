@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/locacoes.css"> <!-- usa o MESMO CSS -->
+  <title>Clientes</title>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🚗 Locadora</div>
+  <div class="header-actions">
+    <button class="btn-tema" id="theme-toggle">
+      <span id="theme-icon">🌙</span>
+      <span id="theme-text">Escuro</span>
+    </button>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <nav>
+    <a href="#">📊 Dashboard</a>
+    <a href="#">🚗 Locações</a>
+    <a href="#" class="active">👤 Clientes</a>
+  </nav>
+</aside>
+
+<main>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div>
+      <h1>Clientes</h1>
+      <p class="page-subtitle">Cadastro e gerenciamento de clientes</p>
+    </div>
+  </div>
+      <div class="card">
+    <div class="card-header">
+      <h2>
+        <span class="icon-plus"></span>
+        Cadastro de Cliente
+      </h2>
+      <button class="btn-clear">✕ Limpar</button>
+    </div>
+
+    <form id="form-cliente" class="form-grid">
+
+
+      <div class="form-group">
+        <label for="campo-nome">Nome <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="text" id="campo-nome" placeholder="Ex: João Silva">
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-cpf">CPF <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="text" id="campo-cpf" placeholder="000.000.000-00">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-data-nascimento">Data de Nascimento <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="date" id="campo-data-nascimento">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-telefone">Telefone <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="text" id="campo-telefone" placeholder="(00) 00000-0000">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-email">E-mail <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="email" id="campo-email" placeholder="exemplo@email.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campo-status">Status <span class="required">*</span></label>
+        <div class="input-wrap">
+          <select id="campo-status">
+            <option value="" selected disabled>Selecione</option>
+            <option value="ativo">Ativo</option>
+            <option value="inativo">Inativo</option>
+          </select>
+        </div>
+      </div>
+      
+    </form>
+    <div class="card-footer">
+        <div class="form-actions">
+            <button class="btn secondary">Cancelar</button>
+            <button type="submit" class="btn primary" id="btn-salvar"><i class="fas fa-check"></i>💾 Salvar Cliente</button>
+        </div>
+    </div>
+    
+
+  </div>
+  <script src="js/cliente-form.js"></script>
+</body>
+</html>

@@ -472,6 +472,7 @@ input[readonly] {
   text-decoration: none;
 }
 
+
 .btn:active {
   transform: scale(0.98);
 }
