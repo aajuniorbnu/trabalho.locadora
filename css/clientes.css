@@ -319,7 +319,7 @@ main {
 .form-grid {
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* ALTERADO: de 3 para 2 colunas */
   gap: 16px;
   background: var(--bg-card);
 }
@@ -472,6 +472,7 @@ input[readonly] {
   text-decoration: none;
 }
 
+
 .btn:active {
   transform: scale(0.98);
 }
@@ -507,6 +508,25 @@ input[readonly] {
 
 .btn i {
   font-size: 13px;
+}
+.btn-clear { 
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s; 
+  background: none;
+  border: none;    
+  font-family: var(--font-main);
+  padding: 6px 10px; 
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--radius-sm); 
+}
+
+.btn-clear:hover {
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.05); 
 }
 
 /* ===========================
