@@ -1,4 +1,4 @@
-const API_CAT = "https://api.franciscosensaulas.com/swagger/locadora/";
+const API_CAT = "https://api.franciscosensaulas.com/api/v1/locadora/categorias";
 let editandoId = null;
 
 function salvarCategoria() {
@@ -21,11 +21,16 @@ function salvarCategoria() {
   });
 }
 
-function editarCategoria(categoria) {
-  document.getElementById("nome").value = categoria.nome;
-  document.getElementById("descricao").value = categoria.descricao;
-  editandoId = categoria.id;
+function editarCategoria(id) {
+  fetch(`${API_CAT}/${id}`)
+    .then(res => res.json())
+    .then(categoria => {
+      document.getElementById("nome").value = categoria.nome;
+      document.getElementById("descricao").value = categoria.descricao;
+      editandoId = categoria.id;
+    });
 }
+
 
 function deletarCategoria(id) {
   fetch(`${API_CAT}/${id}`, { method: "DELETE" })
@@ -45,7 +50,7 @@ function listarCategorias() {
           <td>${categoria.nome}</td>
           <td>${categoria.descricao}</td>
           <td>
-            <button onclick='editarCategoria(${JSON.stringify(categoria)})'>✏️</button>
+            <button onclick="editarCategoria(${categoria.id})">✏️</button>
             <button onclick='deletarCategoria(${categoria.id})'>🗑️</button>
           </td>
         </tr>`;
