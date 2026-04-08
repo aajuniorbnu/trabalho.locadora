@@ -10,13 +10,23 @@ function entrar() {
     const email = campoEmail.value;
     const senha = campoSenha.value;
 
-    if (senha === "12345" && email === "batatinha@gmail.com") {
-        alert("Login efetuado com sucesso");
-        window.location.href = 'veiculos.html';
-        document.getElementById("fazer-login").style.display = "none"
-        document.getElementById("login-feito").style.display = "flex"
+    if (localStorage.getItem("senhaNova") !== "") {
+        if (senha === localStorage.getItem("senhaNova") && email === "batatinha@gmail.com") {
+            alert("Login efetuado com sucesso");
+            localStorage.setItem("logado", "true");
+            const logado = localStorage.getItem("logado");
+            window.location.href = 'dashboard.html';
+        } else {
+            alert("Email ou senha incorretos!");
+        }
     } else {
-        alert("Email ou senha incorretos!");
+        if (senha === "12345" && email === "batatinha@gmail.com") {
+            alert("Login efetuado com sucesso");
+            localStorage.setItem("logado", "true");
+            const logado = localStorage.getItem("logado");
+            window.location.href = 'dashboard.html';
+        } else {
+            alert("Email ou senha incorretos!");
+        }
     }
-
 }

@@ -15,6 +15,8 @@
   <a href="/categorias.html">Categorias</a>
   <a href="/veiculos.html">Veículos</a>
   <a href="/locacoes.html">Locações</a>
+  <a href="/login.html" id="fazer-login">Fazer login</a>
+  <a href="/conta.html" id="login-feito" style="display: none;">Minha conta</a>
 
 </nav>
 
@@ -34,6 +36,16 @@ function toggleTema() {
     document.body.classList.add('dark');
   }
 })();
+
+const logado = localStorage.getItem("logado");
+
+if (logado === "true") {
+    document.getElementById("fazer-login").style.display = "none";
+    document.getElementById("login-feito").style.display = "flex";
+  } else {
+    document.getElementById("fazer-login").style.display = "flex";
+    document.getElementById("login-feito").style.display = "none";
+}
 </script>
 
 </body>
