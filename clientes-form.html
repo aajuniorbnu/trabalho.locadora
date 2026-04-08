@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/locacoes.css"> <!-- usa o MESMO CSS -->
+  <link rel="stylesheet" href="css/clientes.css"> 
   <title>Clientes</title>
 </head>
 
@@ -45,66 +45,23 @@
       <button class="btn-clear">✕ Limpar</button>
     </div>
 
-    <form id="form-cliente" class="form-grid">
+<form id="form-cliente" class="form-grid">
 
-
-      <div class="form-group">
-        <label for="campo-nome">Nome <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="text" id="campo-nome" placeholder="Ex: João Silva">
-
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="campo-cpf">CPF <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="text" id="campo-cpf" placeholder="000.000.000-00">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="campo-data-nascimento">Data de Nascimento <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="date" id="campo-data-nascimento">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="campo-telefone">Telefone <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="text" id="campo-telefone" placeholder="(00) 00000-0000">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="campo-email">E-mail <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="email" id="campo-email" placeholder="exemplo@email.com">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="campo-status">Status <span class="required">*</span></label>
-        <div class="input-wrap">
-          <select id="campo-status">
-            <option value="" selected disabled>Selecione</option>
-            <option value="ativo">Ativo</option>
-            <option value="inativo">Inativo</option>
-          </select>
-        </div>
-      </div>
-      
-    </form>
-    <div class="card-footer">
-        <div class="form-actions">
-            <button class="btn secondary">Cancelar</button>
-            <button type="submit" class="btn primary" id="btn-salvar"><i class="fas fa-check"></i>💾 Salvar Cliente</button>
-        </div>
-    </div>
-    
-
+  <div class="form-group">
+    <label>Nome</label>
+    <input type="text" id="campo-nome">
   </div>
+
+  <div class="form-group">
+    <label>CPF</label>
+    <input type="text" id="campo-cpf">
+  </div>
+  <div class="form-actions">
+    <a href="clientes.html" class="btn secondary">Cancelar</a>
+    <button type="submit" id="btn-salvar" class="btn primary">💾 Salvar Cliente</button>
+  </div>
+</form>
+    
   <script src="js/cliente-form.js"></script>
 </body>
 </html>
