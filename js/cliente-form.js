@@ -19,8 +19,8 @@ formCliente.addEventListener("submit", (event) => {
     }
 
     let payload = {
-        nome: campoNome.value,
-        cpf: formatCpfForApi(campoCpf.value)
+        "nome": campoNome.value,
+        "cpf": formatCpfForApi(campoCpf.value)
     };
 
     if (idParaEditar === null) {
@@ -62,7 +62,7 @@ function cadastrarCliente(payload) {
         alert("Cliente cadastrado com sucesso");
     })
     .catch((erro) => {
-        alert("Erro: " + erro.message);
+        alert("Cliente ja Cadastrado ");
     });
 }
 
@@ -102,3 +102,49 @@ function limparCampos() {
 if (idParaEditar !== null) {
     carregarClienteParaEditar();
 }
+
+
+// tema dark 
+
+function toggleTema() {
+  const body = document.body;
+  const themeIcon = document.getElementById('theme-icon');
+  const themeText = document.getElementById('theme-text');
+  
+  body.classList.toggle('dark');
+  
+  const isDark = body.classList.contains('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  
+  updateThemeUI(isDark);
+}
+
+
+function updateThemeUI(isDark) {
+  const themeIcon = document.getElementById('theme-icon');
+  const themeText = document.getElementById('theme-text');
+  
+  if (themeIcon) {
+    themeIcon.innerText = isDark ? '☀️' : '🌙';
+  }
+  
+  if (themeText) {
+    themeText.innerText = isDark ? 'Modo Claro' : 'Modo Escuro';
+  }
+}
+
+
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  const isDark = savedTheme === 'dark';
+  
+  if (isDark) {
+    document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
+  }
+  
+  updateThemeUI(isDark);
+}
+
+document.addEventListener('DOMContentLoaded', initTheme);

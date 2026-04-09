@@ -20,9 +20,10 @@
 
   <aside class="sidebar">
     <nav>
-      <a href="#">📊 Dashboard</a>
-      <a href="#" class="active">🚗 Locações</a>
-      <a href="#">🚙 Veículos</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="locacoes.html" class="active">🚗 Locações</a>
+      <a href="veiculos.html">🚙 Veículos</a>
+      <a href="clientes.html">👤 Clientes</a>
     </nav>
   </aside>
 
@@ -33,7 +34,6 @@
       <h1>Locações</h1>
       <p class="page-subtitle">Cadastro e gerenciamento de locações</p>
     </div>
-    <button class="btn secondary">📤 Exportar</button>
   </div>
 
   <!-- CARD FORM -->
@@ -140,110 +140,7 @@
       </div>
     </div>
 
-  </div>
-
-  <!-- CARD TABELA -->
-  <div class="card">
-    <div class="card-header flex">
-      <h2>
-        <span class="icon-list">📋</span>
-        Locações cadastradas
-      </h2>
-
-      <div class="table-toolbar">
-        <div class="search-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="search-locacoes" placeholder="Buscar locação...">
-        </div>
-        <select id="filtro-status">
-          <option value="">Todas</option>
-          <option value="ativa">Ativas</option>
-          <option value="finalizada">Finalizadas</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Cliente</th>
-            <th>Veículo</th>
-            <th>Categoria</th>
-            <th>Valor Dia</th>
-            <th>Valor Total</th>
-            <th>Status</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-
-        <tbody id="lista-locacoes">
-          <!-- Dados de exemplo -->
-          <tr>
-            <td>João Silva</td>
-            <td>Honda Civic</td>
-            <td>Executivo</td>
-            <td>R$ 150,00</td>
-            <td>R$ 750,00</td>
-            <td><span class="status-badge ativo">● Ativa</span></td>
-            <td>
-              <div class="actions">
-                <button class="btn-icon edit" title="Editar" aria-label="Editar locação">✏️</button>
-                <button class="btn-icon complete" title="Finalizar" aria-label="Finalizar locação">✓</button>
-                <button class="btn-icon del" title="Remover" aria-label="Remover locação">🗑️</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Maria Santos</td>
-            <td>Fiat Uno</td>
-            <td>Econômico</td>
-            <td>R$ 80,00</td>
-            <td>R$ 240,00</td>
-            <td><span class="status-badge ativo">● Ativa</span></td>
-            <td>
-              <div class="actions">
-                <button class="btn-icon edit" title="Editar" aria-label="Editar locação">✏️</button>
-                <button class="btn-icon complete" title="Finalizar" aria-label="Finalizar locação">✓</button>
-                <button class="btn-icon del" title="Remover" aria-label="Remover locação">🗑️</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Pedro Oliveira</td>
-            <td>Toyota Corolla</td>
-            <td>Executivo</td>
-            <td>R$ 180,00</td>
-            <td>R$ 900,00</td>
-            <td><span class="status-badge finalizado">● Finalizada</span></td>
-            <td>
-              <div class="actions">
-                <button class="btn-icon edit" title="Editar" aria-label="Editar locação">✏️</button>
-                <button class="btn-icon complete" title="Finalizar" aria-label="Finalizar locação">✓</button>
-                <button class="btn-icon del" title="Remover" aria-label="Remover locação">🗑️</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Ana Costa</td>
-            <td>Volkswagen Golf</td>
-            <td>Executivo</td>
-            <td>R$ 200,00</td>
-            <td>R$ 600,00</td>
-            <td><span class="status-badge ativo">● Ativa</span></td>
-            <td>
-              <div class="actions">
-                <button class="btn-icon edit" title="Editar" aria-label="Editar locação">✏️</button>
-                <button class="btn-icon complete" title="Finalizar" aria-label="Finalizar locação">✓</button>
-                <button class="btn-icon del" title="Remover" aria-label="Remover locação">🗑️</button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
+  </div
 </main>
 
 <script src="js/theme.js"></script>
