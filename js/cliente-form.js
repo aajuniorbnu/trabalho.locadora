@@ -3,12 +3,14 @@ const API_CLIENTE_BASE_URL = "https://api.franciscosensaulas.com/api/v1/locadora
 const formCliente = document.getElementById("form-cliente");
 const campoNome = document.getElementById("campo-nome");
 const campoCpf = document.getElementById("campo-cpf");
-const campoEmail = document.getElementById("campo-email");
 
+const urlParams = new URLSearchParams(window.location.search);
+const idParaEditar = urlParams.get("id");
+
+const botaoLimpar = document.getElementById("btn-limpar");
+botaoLimpar.addEventListener("click", limparCampos);
 
 formCliente.addEventListener("submit", (event) => {
-    console.log("🔥 SUBMIT DISPARADO");
-    
     event.preventDefault();
 
     if (!campoNome.value || !campoCpf.value) {
@@ -17,11 +19,15 @@ formCliente.addEventListener("submit", (event) => {
     }
 
     let payload = {
-        "nome": campoNome.value,
-        "cpf": formatCpfForApi(campoCpf.value),
+        nome: campoNome.value,
+        cpf: formatCpfForApi(campoCpf.value)
     };
-    
-    cadastrarCliente(payload);
+
+    if (idParaEditar === null) {
+        cadastrarCliente(payload);
+    } else {
+        editarCliente(payload);
+    }
 });
 
 function formatCpfForApi(cpf) {
@@ -29,8 +35,6 @@ function formatCpfForApi(cpf) {
 }
 
 function cadastrarCliente(payload) {
-    console.log("📤 Enviando:", payload);
-
     fetch(API_CLIENTE_BASE_URL, {
         method: "POST",
         headers: {
@@ -49,7 +53,6 @@ function cadastrarCliente(payload) {
         }
 
         if (!response.ok) {
-            console.error("🔴 ERRO API:", data);
             throw new Error(data?.message || JSON.stringify(data));
         }
 
@@ -59,7 +62,43 @@ function cadastrarCliente(payload) {
         alert("Cliente cadastrado com sucesso");
     })
     .catch((erro) => {
-        console.error("❌ ERRO:", erro);
         alert("Erro: " + erro.message);
     });
+}
+
+function editarCliente(payload) {
+    fetch(`${API_CLIENTE_BASE_URL}/${idParaEditar}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(() => {
+        alert("Cliente atualizado com sucesso");
+    })
+    .catch(() => {
+        alert("Erro ao atualizar cliente");
+    });
+}
+
+function carregarClienteParaEditar() {
+    fetch(`${API_CLIENTE_BASE_URL}/${idParaEditar}`)
+        .then(response => response.json())
+        .then(cliente => {
+            campoNome.value = cliente.nome;
+            campoCpf.value = cliente.cpf;
+        })
+        .catch(() => {
+            alert("Erro ao carregar cliente");
+        });
+}
+
+function limparCampos() {
+    campoNome.value = "";
+    campoCpf.value = "";
+}
+
+if (idParaEditar !== null) {
+    carregarClienteParaEditar();
 }

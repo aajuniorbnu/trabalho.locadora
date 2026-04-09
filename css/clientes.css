@@ -270,6 +270,8 @@ main {
   overflow: hidden;
   margin-bottom: 20px;
   transition: background 0.25s, border-color 0.25s;
+  display: flex;
+  flex-direction: column;
 }
  
 .card-header {
@@ -278,8 +280,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.25s, border-color 0.25s;
-  background: var(--bg-card);
+  flex-shrink: 0;
+}
+
+.card-header.flex {
+  flex-direction: column;
+  align-items: flex-start;
 }
  
 .card-header h2 {
@@ -312,6 +318,24 @@ main {
 .btn-limpar:hover {
   color: var(--text-primary);
 }
+
+.btn-clear {
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.15s;
+  background: none;
+  border: none;
+  font-family: var(--font-main);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-clear:hover {
+  color: var(--text-primary);
+}
  
 /* ===========================
    FORM
@@ -319,10 +343,11 @@ main {
 .form-grid {
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* ALTERADO: de 3 para 2 colunas */
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   background: var(--bg-card);
 }
+
 
 .form-group {
   display: flex;
@@ -371,12 +396,12 @@ select.with-icon {
 
 input, select {
   width: 100%;
-  padding: 8px 10px;
+  padding: 9px 10px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-input);
   background: var(--bg-input);
   color: var(--text-primary);
-  font-size: 12px;
+  font-size: 13px;
   font-family: var(--font-main);
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s, background 0.25s;
@@ -440,14 +465,18 @@ input[readonly] {
   background: var(--bg-row-alt);
   transition: background 0.25s, border-color 0.25s;
   gap: 10px;
+  flex-shrink: 0;
 }
 
+/* Faz os botões ocuparem linha inteira */
 .form-actions {
+  grid-column: 1 / -1;
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
   gap: 10px;
-  margin-left: auto;
+  margin-top: 10px;
 }
+
 
 .form-note {
   font-size: 10px;
@@ -485,9 +514,8 @@ input[readonly] {
 .btn.primary {
   background: var(--accent);
   color: #fff;
-  transition: background 0.13s;
-  border-radius: var(--radius-md);
-  padding: 8px 24px;
+  padding: 10px 20px;
+  font-size: 13px;
 }
 
 .btn.primary:hover:not(:disabled) {
@@ -495,7 +523,7 @@ input[readonly] {
 }
 
 .btn.secondary {
-  background: transparent;
+  padding: 10px 18px;
   border: 1px solid var(--border);
   color: var(--text-secondary);
   transition: background 0.13s, color 0.13s;
@@ -509,25 +537,6 @@ input[readonly] {
 .btn i {
   font-size: 13px;
 }
-.btn-clear { 
-  color: var(--text-muted);
-  font-size: 12px;
-  cursor: pointer;
-  transition: color 0.15s, background 0.15s; 
-  background: none;
-  border: none;    
-  font-family: var(--font-main);
-  padding: 6px 10px; 
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  border-radius: var(--radius-sm); 
-}
-
-.btn-clear:hover {
-  color: var(--text-primary);
-  background: rgba(0, 0, 0, 0.05); 
-}
 
 /* ===========================
    ACTION BUTTONS (ICON BUTTONS)
@@ -539,54 +548,84 @@ input[readonly] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  border: none;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
   background: transparent;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   cursor: pointer;
-  font-size: 13px;
-  transition: background 0.12s, color 0.12s;
+  font-size: 14px;
+  transition: all 0.12s;
   font-family: var(--font-main);
 }
 
 .btn-icon:hover {
-  background: transparent;
+  background: var(--border);
   color: var(--text-primary);
 }
 
-.btn-icon.danger:hover {
-  color: var(--danger);
-}
-
-.btn-icon.warning:hover {
-  color: var(--warning-text);
-}
-
-.btn-icon.info:hover {
+.btn-icon.edit:hover {
+  background: #e3f2fd;
   color: var(--accent);
+  border-color: var(--accent);
 }
 
-.btn-icon.success:hover {
+body.dark .btn-icon.edit:hover {
+  background: rgba(90, 174, 232, 0.15);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-icon.complete:hover {
+  background: var(--success-bg);
   color: var(--success-text);
+  border-color: var(--success-text);
 }
 
+body.dark .btn-icon.complete:hover {
+  background: rgba(90, 200, 138, 0.15);
+  color: var(--success-text);
+  border-color: var(--success-text);
+}
+
+.btn-icon.del:hover {
+  background: #fde8e4;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+body.dark .btn-icon.del:hover {
+  background: rgba(232, 112, 90, 0.15);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+.btn-icon.edit {
+  text-decoration: none;
+}
+.btn-icon {
+  text-decoration: none;
+}
+.btn-icon:hover {
+  text-decoration: none;
+}
 /* ===========================
    TABLE TOOLBAR
 =========================== */
 .table-toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 12px;
   padding: 12px 20px;
   border-bottom: 1px solid var(--border);
   background: var(--bg-card);
   transition: background 0.25s, border-color 0.25s;
+  flex-shrink: 0;
+  width: 100%;
 }
 
 .search-wrap {
   position: relative;
-  flex: 1;
+  flex: 0 0 auto;
   max-width: 400px;
 }
 
@@ -647,6 +686,9 @@ input[readonly] {
 =========================== */
 .table-wrap {
   overflow-x: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
  
 table {
@@ -662,7 +704,7 @@ thead tr {
  
 thead th {
   padding: 12px 14px;
-  text-align: left;
+  text-align: center;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -691,6 +733,7 @@ tbody td {
   color: var(--text-primary);
   vertical-align: middle;
   transition: color 0.25s;
+  text-align: center;
 }
 
 tbody td strong {
@@ -880,9 +923,24 @@ tbody td strong {
 }
 
 @media (max-width: 768px) {
+ 
   .sidebar {
     width: 160px;
   }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
   main {
     margin-left: 160px;
     width: calc(100% - 160px);
