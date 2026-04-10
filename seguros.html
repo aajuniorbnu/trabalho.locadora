@@ -10,25 +10,32 @@
 
 <body>
 
-    <header>
-        <h1>🚗 Locadora de Veículos</h1>
-        <div class="busca">
-            <input class="input-busca" type="text" name="busca" placeholder="Faça sua Busca">
+  <header>
+  <div class="logo">
+    🚗 Locadora de Veículos
+  </div>
 
-        </div>
-        <button>
-            <a href="/login.html">Login</a>
-        </button>
-        <button onclick="toggleTema()">🌙 / ☀️</button><!--talvez mudar o simbolo-->
-    </header>
+  <div class="header-actions">
+    <input class="input-busca" type="text" placeholder="Faça sua Busca">
 
+    <div id="fazer-login">
+      <a href="/login.html" class="btn primary">Login</a>
+    </div>
+
+    <div id="login-feito" style="display:none;">
+      <span>✅ Logado</span>
+    </div>
+
+    <button class="btn-tema" onclick="toggleTema()">🌗</button>
+  </div>
+</header>
     <nav class="sidebar">
 
-        <a href="/dashboard.html">Home</a>
+        <a href="/dashboard.html">📊 Home</a>
         <a href="/categorias.html">Categorias</a>
 
         <a href="/veiculos.html">Veículos</a>
-        <a href="/locacoes.html">Locações</a>
+        <a href="/locacoes.html">🚗 Locações</a>
 
     </nav>
     <main>

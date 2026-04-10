@@ -1,111 +1,108 @@
+<!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8">
-  <title>Locadora PRO - Portfólio</title>
+  <title>Locadora PRO</title>
   <link rel="stylesheet" href="/css/veiculos-categoria.css">
 </head>
-
 
 <body>
 
 <header>
-  <h1>🚗 Locadora de Veículos</h1>
-    <div class="busca">
-            <input class="input-busca" type="text" name="busca" placeholder="Faça sua Busca"> 
+  <div class="logo">
+    🚗 Locadora de Veículos
+  </div>
 
-        </div>
-        <button>
-          <a href="/login.html">Login</a>
-        </button>
-  <button onclick="toggleTema()">🌙 / ☀️</button><!--talvez mudar o simbolo-->
+  <div class="header-actions">
+    <input class="input-busca" type="text" placeholder="Faça sua Busca">
+
+    <div id="fazer-login">
+      <a href="/login.html" class="btn primary">Login</a>
+    </div>
+
+    <div id="login-feito" style="display: none;">
+      <span>✅ Logado</span>
+    </div>
+
+    <button class="btn-tema "   onclick="toggleTema()">🌗</button>
+  </div>
 </header>
 
 <nav class="sidebar">
- 
-  
-  <a href="/seguros.html">Seguros</a>
-   <a href="/categorias.html">Categorias</a>
-  <a href="/veiculos.html">Veículos</a>
-  <a href="/locacoes.html">Locações</a>
-
+  <nav>
+    <a href="/seguros.html">🔐 Seguros</a>
+    <a href="/categorias.html">Categorias</a>
+    <a href="/veiculos.html">Veículos</a>
+    <a href="/locacoes.html">🚗 Locações</a>
   </nav>
+</nav>
 
 <main>
-  <h2>Bem-vindo ao sistema</h2>
-  <p>Gerencie categorias e veículos </p>
 
-      <div class="section-header">
-              <h2 class="section-title">Livros Recentes</h2>
-            </div>
-            <div class="table-container">
-              <div class="table-responsive">
-                <table class="table" id="table-livros-recentes">
-                  <thead>
-                    <tr>
-                      <th>Titulo</th>
-                      <th>Autor</th>
-                      <th>Categoria</th>
-                      <th>Ano</th>
-                    </tr>
-                  </thead>
-                  <tbody id="tbody-livros-recentes">
-                    <tr>
-                      <td>A Hora da Estrela</td>
-                      <td>Clarice Lispector</td>
-                      <td>Romance</td>
-                      <td>1977</td>
-                    </tr>
-                    <tr>
-                      <td>O Cortico</td>
-                      <td>Aluisio Azevedo</td>
-                      <td>Naturalismo</td>
-                      <td>1890</td>
-                    </tr>
-                    <tr>
-                      <td>Capitaes da Areia</td>
-                      <td>Jorge Amado</td>
-                      <td>Romance</td>
-                      <td>1937</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+  <div class="page-header">
+    <div>
+      <h1>Dashboard</h1>
+      <p class="page-subtitle">Gerencie categorias e veículos</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>📚 Dados de entrada</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Total de veiculos</th>
+            <th>Veiculos Disponiveis</th>
+            <th>Veiculos Alugados</th>
+            <th>Ano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10</td>
+            <td>5</td>
+            <td>5</td>
+            <td>2023</td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </main>
 
-
-
-
-
-
-
-
-
-
-<script src="/js/dashboard.js"></script>
 <script>
 function toggleTema() {
   const isDark = document.body.classList.toggle('dark');
   localStorage.setItem('tema', isDark ? 'dark' : 'light');
 }
 
-    (function () {
-      if (localStorage.getItem('tema') === 'dark') {
-        document.body.classList.add('dark');
-      }
-    })();
+(function () {
+  if (localStorage.getItem('tema') === 'dark') {
+    document.body.classList.add('dark');
+  }
+})();
 
-    const logado = localStorage.getItem("logado");
+const fazerLogin = document.getElementById("fazer-login");
+const loginFeito = document.getElementById("login-feito");
 
-    if (logado === "true") {
-      document.getElementById("fazer-login").style.display = "none";
-      document.getElementById("login-feito").style.display = "flex";
-    } else {
-      document.getElementById("fazer-login").style.display = "flex";
-      document.getElementById("login-feito").style.display = "none";
-    }
-  </script>
+const logado = localStorage.getItem("logado");
+
+if (fazerLogin && loginFeito) {
+  if (logado === "true") {
+    fazerLogin.style.display = "none";
+    loginFeito.style.display = "flex";
+  } else {
+    fazerLogin.style.display = "flex";
+    loginFeito.style.display = "none";
+  }
+}
+</script>
 
 </body>
-
 </html>
