@@ -510,6 +510,15 @@ input[readonly] {
 .btn-icon-save {
   font-size: 14px;
 }
+.btn-icon.edit {
+  text-decoration: none;
+}
+.btn-icon {
+  text-decoration: none;
+}
+.btn-icon:hover {
+  text-decoration: none;
+}
 
 /* ===========================
    ACTION BUTTONS (ICON BUTTONS)
