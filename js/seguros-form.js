@@ -84,7 +84,7 @@ async function buscarSeguroPorId() {
 }
 
 
-// ---------------- SUBMIT ----------------
+
 formSeguro.addEventListener("submit", (event) => {
     event.preventDefault();
 

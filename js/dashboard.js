@@ -2,7 +2,7 @@ const API_LOCADORA_VEICULOS_URL = "https://api.franciscosensaulas.com/api/v1/loc
 const API_LOCADORA_CATEGORIAS_URL = "https://api.franciscosensaulas.com/api/v1/locadora/categorias";
 
 
-// ---------------- CATEGORIAS (CARDS) ----------------
+
 async function carregarCategorias() {
     try {
         const response = await fetch(API_LOCADORA_CATEGORIAS_URL);
