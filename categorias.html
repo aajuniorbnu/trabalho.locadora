@@ -1,27 +1,42 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Categorias</title>
-<link rel="stylesheet" href="/css/veiculos-categoria.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categorias</title>
+  <link rel="stylesheet" href="css/veiculos-categoria.css">
 </head>
 <body>
- <header>
-    <h1>🚗 Locadora de Veículos</h1>
-  </header>
-  <button onclick="toggleTema()">🌙 / ☀️</button>
-<h2>Categorias</h2>
-<div class="form">
-  <input id="nome" placeholder="Nome da categoria">
-  <input id="descricao" placeholder="Descrição">
-  <button onclick="salvarCategoria()">Salvar</button>
-</div>
 
-<table>
-<thead>
-<tr><th>ID</th><th>Nome</th><th>Descrição</th><th>Ações</th></tr>
-</thead>
-<tbody id="tabelaCategorias"></tbody>
-</table>
+<header>
+  <h1>🚗 Locadora de Veículos</h1>
+  <button onclick="toggleTema()">🌙 / ☀️</button>
+</header>
+
+<main>
+  <h2>Categorias</h2>
+
+  <div class="form">
+    <input type="text" id="nome" placeholder="Nome da categoria">
+    <input type="text" id="descricao" placeholder="Descrição">
+    <button onclick="salvarCategoria()">Salvar</button>
+  </div>
+
+  <div id="mensagem"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaCategorias"></tbody>
+  </table>
+</main>
+
 <script>
 function toggleTema() {
   const isDark = document.body.classList.toggle('dark');
@@ -34,6 +49,7 @@ function toggleTema() {
   }
 })();
 </script>
-<script src="/js/categorias.js"></script>
+
+<script src="js/categorias.js"></script>
 </body>
 </html>
