@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locadora PRO - Portfólio</title>
     <link rel="stylesheet" href="/css/veiculos-categoria.css">
+    <link rel="stylesheet" href="/css/seguros form.css">
 </head>
 
 <body>
@@ -40,59 +41,55 @@
 ● Status (ativo/vencido)
 ● Observações
 -->
-        <form action="">
+   <main>
 
-             <label for="seguro-tipo">Seguros</label>
-                <select id="seguro-tipo">
-                    <option value="vazio"></option>
-                    <option value="Básico">Seguro básico</option>
-                    <option value="Completo">Seguro completo</option>
-                </select>
-            
-                <label for="cobertura">Cobertura de terceiros:</label>
-                <select id="cobertura">
-                    <option value="vazio"></option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                </select>
-                <label for="assistencia">Assistência 24h:</label>
-                <select id="assistencia">
-                    <option value="vazio"></option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                </select>
-                <label for="status">Status:</label>
-                <select id="status">
-                    <option value="vazio"></option>
-                    <option value="ativo">Ativo</option>
-                    <option value="vencido">Vencido</option>
-                </select>
+<form id="form-seguro">
 
-           
-            <label for="email">email:</label>
-            <input type="email" id="email" name="email" placeholder="">
-            
-           
-        </form>
-        <form action="">
-            
-           
-            
-            <label for="observaçao">Observações:</label>
-            <input type="text" id="observaçao" name="observaçao" placeholder="">
+    <label>Tipo de Seguro</label>
+    <select id="seguro-tipo">
+        <option value="">Selecione</option>
+        <option value="basico">Básico</option>
+        <option value="completo">Completo</option>
+    </select>
 
-            <label for="contato-seguradora">Contato da seguradora:</label>
-            <input type="number" id="contato-seguradora" name="contato-seguradora" placeholder="99999-9999">
-            
-            <label for="valor-mes">Valor Mensal:</label>
-            <input type="number" id="valor-mes" name="valor-mes" placeholder="">
-            
-            <button type="submit"  ><a href="/seguros.html">Cadastrar</a></button>
-        </form>
-    </main>
-        
-        
-        
+    <label>Cobertura de terceiros</label>
+    <select id="cobertura">
+        <option value="">Selecione</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+
+    <label>Assistência 24h</label>
+    <select id="assistencia">
+        <option value="">Selecione</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+
+    <label>Status</label>
+    <select id="status">
+        <option value="">Selecione</option>
+        <option value="ativo">Ativo</option>
+        <option value="vencido">Vencido</option>
+    </select>
+
+    <label>Email</label>
+    <input type="email" id="email">
+
+    <label>Observações</label>
+    <input type="text" id="observacoes">
+
+    <label>Contato da seguradora</label>
+    <input type="text" id="contato-seguradora">
+
+    <label>Valor mensal</label>
+    <input type="number" id="valor-mes">
+
+    <button type="submit">Salvar</button>
+
+</form>
+
+</main>
         
         
         

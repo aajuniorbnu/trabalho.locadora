@@ -2,10 +2,15 @@ const API_LOCADORA_SEGUROS_URL = "https://api.franciscosensaulas.com/api/v1/loca
 
 const tabela = document.getElementById("tabela-seguros");
 
-// ---------------- LISTAR ----------------
+
 async function listarSeguros() {
     try {
         const response = await fetch(API_LOCADORA_SEGUROS_URL);
+
+        if (!response.ok) {
+            throw new Error("Erro ao buscar seguros");
+        }
+
         const seguros = await response.json();
 
         tabela.innerHTML = "";
@@ -14,11 +19,12 @@ async function listarSeguros() {
             const linha = document.createElement("tr");
 
             linha.innerHTML = `
-                <td>${seguro.tipo}</td>
-                <td>R$ ${seguro.valor_mensal}</td>
-                <td>${seguro.status}</td>
-                <td>${seguro.cobertura_terceiros}</td>
-                <td>${seguro.assistencia_24h}</td>
+                <td>${seguro.tipo || ""}</td>
+                <td>R$ ${seguro.valor_mensal || 0}</td>
+                <td>${seguro.status || ""}</td>
+                <td>${seguro.cobertura || ""}</td>
+                <td>${seguro.assistencia || ""}</td>
+                <td>${seguro.observacoes || ""}</td>
                 <td>
                     <button onclick="editar(${seguro.id})">✏️</button>
                     <button onclick="excluir(${seguro.id})">🗑️</button>
@@ -30,13 +36,13 @@ async function listarSeguros() {
 
     } catch (error) {
         console.error("Erro ao listar seguros:", error);
+        alert("Erro ao carregar seguros");
     }
 }
 
-// ---------------- EXCLUIR ----------------
+
 async function excluir(id) {
     const confirmar = confirm("Deseja excluir este seguro?");
-
     if (!confirmar) return;
 
     try {
@@ -57,10 +63,10 @@ async function excluir(id) {
     }
 }
 
-// ---------------- EDITAR ----------------
+
 function editar(id) {
-    window.location.href = `form-seguro.html?id=${id}`;
+    window.location.href = `seguros-form.html?id=${id}`;
 }
 
-// ---------------- INICIALIZAÇÃO ----------------
+
 listarSeguros();
