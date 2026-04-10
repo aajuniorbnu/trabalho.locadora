@@ -300,7 +300,6 @@ main {
   transform: translateY(-50%);
   color: var(--text-muted);
   z-index: 1;
-  font-size: 14px;
 }
 
 .search-wrap input:focus {
@@ -394,6 +393,22 @@ input, select {
 
 .btn.secondary:hover {
   background: var(--border);
+}
+.btn-clear {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-clear:hover {
+  color: var(--danger);
 }
  
 /* ===========================
