@@ -1,5 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+:root {
+    --bg-page: #f0ece3;
+    --bg-sidebar: #ffffff;
+    --bg-card: #ffffff;
+    --bg-header: #1c2b3a;
+    --bg-input: #faf8f4;
+    --bg-table-head: #1c2b3a;
+    --bg-row-alt: #f7f3ec;
+    --bg-row: #ffffff;
+    --bg-active: #eaf2fb;
+    --bg-btn-ghost: transparent;
+    
+    --text-primary: #1c2b3a;
+    --text-secondary: #4e5d6c;
+    --text-muted: #8a97a4;
+    --text-thead: rgba(255, 255, 255, 0.88);
+    --text-active: #1a5fa8;
+    
+    --border: #e0d9cf;
+    --border-input: #cdc5b8;
+    --border-focus: #2e80d0;
+    --border-row: #ebe5dc;
+    
+    --accent: #2e80d0;
+    --accent-hover: #1f6ab8;
+    --danger: #d04a2e;
+    --danger-hover: #b83820;
+    --success-bg: #e6f4ee;
+    --success-text: #1a7040;
+    --warning-bg: #fef4e6;
+    --warning-text: #a05a10;
+    
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+    
+    --radius-sm: 6px;
+    --radius-md: 9px;
+    --radius-lg: 13px;
+    --radius-pill: 999px;
+    
+    --sidebar-w: 230px;
+    --header-h: 54px;
+    
+    --font-main: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'DM Mono', 'Courier New', monospace;
+}
+
+body.dark {
+    --bg-page: #111820;
+    --bg-sidebar: #192430;
+    --bg-card: #1e2d3d;
+    --bg-header: #111820;
+    --bg-input: #1a2636;
+    --bg-table-head: #111820;
+    --bg-row-alt: #192430;
+    --bg-row: #1e2d3d;
+    --bg-active: #1a3050;
+    --bg-btn-ghost: transparent;
+    
+    --text-primary: #dce8f0;
+    --text-secondary: #8aa4b8;
+    --text-muted: #556880;
+    --text-thead: rgba(220, 232, 240, 0.85);
+    --text-active: #6aaee8;
+    
+    --border: #243344;
+    --border-input: #2e4158;
+    --border-focus: #5aaee8;
+    --border-row: #243344;
+    
+    --accent: #5aaee8;
+    --accent-hover: #7ac2f4;
+    --danger: #e8705a;
+    --danger-hover: #f08070;
+  --success-bg: #162a20;
+  --success-text: #5ac88a;
+  --warning-bg: #281e0e;
+  --warning-text: #e8a050;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,67 +91,72 @@
 }
 
 body {
-    /* Cor de fundo atualizada conforme solicitado */
-    background-color: #F0ECE3;
+    background-color: var(--bg-page);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #1e293b;
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex-direction: column;
+    padding-top: var(--header-h);
 }
 
 .login-card {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 32px 24px;
     width: 100%;
     max-width: 380px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-md);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .login-card h2 {
     margin-bottom: 24px;
     font-size: 20px;
-    color: #1e293b;
+    color: var(--text-primary);
     text-align: center;
+    transition: color 0.3s ease;
 }
 
 label {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #64748b;
+    color: var(--text-secondary);
     margin-bottom: 6px;
     letter-spacing: 0.5px;
+    transition: color 0.3s ease;
 }
 
 input {
     padding: 12px 14px;
     margin-bottom: 16px;
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--border-input);
     border-radius: 6px;
-    background-color: #f8fafc;
+    background-color: var(--bg-input);
     font-size: 14px;
-    color: #0f172a;
+    color: var(--text-primary);
     outline: none;
     transition: all 0.2s ease-in-out;
 }
 
 input::placeholder {
-    color: #94a3b8;
+    color: var(--text-muted);
 }
 
 input:focus {
-    border-color: #2563eb;
-    background-color: #ffffff;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    border-color: var(--border-focus);
+    background-color: var(--bg-card);
+    box-shadow: 0 0 0 3px rgba(90, 174, 232, 0.2);
 }
 
 button {
-    background-color: #2563eb;
+    background-color: var(--accent);
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -77,23 +165,91 @@ button {
     font-weight: 500;
     cursor: pointer;
     margin-top: 8px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease;
 }
 
-button:hover {
-    background-color: #1d4ed8;
+button#entrar {
+    background-color: var(--accent);
+}
+
+button#entrar:hover {
+    background-color: var(--accent-hover);
 }
 
 a {
     margin-top: 20px;
     text-align: center;
     font-size: 13px;
-    color: #64748b;
+    color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #2563eb;
+    color: var(--accent);
     text-decoration: underline;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  background: var(--bg-header);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 200;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  transition: background 0.25s, color 0.25s;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-tema {
+  background: rgba(255, 255, 255, 0.1);
+  border:var(--text-primary);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-tema:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+body.dark .btn-tema {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+body.dark .btn-tema:hover {
+  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+#header-text {
+    color: #ffff;
 }

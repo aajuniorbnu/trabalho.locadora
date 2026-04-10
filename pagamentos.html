@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/locacoes.css">
-  <title>Locações</title>
+  <link rel="stylesheet" href="css/pagamentos.css">
+  <title>Pagamentos</title>
 </head>
 <body>
 
@@ -20,8 +20,8 @@
   <aside class="sidebar">
     <nav>
       <a href="dashboard.html">📊 Dashboard</a>
-      <a href="locacoes.html" class="active">🚗 Locações</a>
-      <a href="pagamentos.html">💳 Pagamentos</a>
+      <a href="locacoes.html">🚗 Locações</a>
+      <a href="pagamentos.html" class="active">💳 Pagamentos</a>
       <a href="veiculos.html">🚙 Veículos</a>
       <a href="clientes.html">👤 Clientes</a>
     </nav>
@@ -31,21 +31,30 @@
 
   <div class="page-header">
     <div>
-      <h1>Locações</h1>
-      <p class="page-subtitle">Cadastro e gerenciamento de locações</p>
+      <h1>Pagamentos</h1>
+      <p class="page-subtitle">Gerenciamento de pagamentos de locações</p>
     </div>
+    <a class="btn secondary" href="pagamentos-form.html"> ➕ Novo Pagamento</a>
   </div>
     <div class="card">
     <div class="card-header flex">
       <h2>
-        <span class="icon-list">📋</span>
-        Locações cadastradas
+        <span class="icon-list">💰</span>
+        Pagamentos registrados
       </h2>
 
       <div class="table-toolbar">
         <div class="search-wrap">
           <span class="search-icon">🔍</span>
-          <input type="text" id="search-locacoes" placeholder="Buscar locação...">
+          <input type="text" id="search-pagamentos" placeholder="Buscar pagamento...">
+        </div>
+        <div class="filter-wrap">
+          <select id="filter-status" class="filter-select">
+            <option value="">Status</option>
+            <option value="pago">✅ Pago</option>
+            <option value="pendente">⏳ Pendente</option>
+            <option value="atrasado">❌ Atrasado</option>
+          </select>
         </div>
       </div>
     </div>
@@ -54,19 +63,20 @@
       <thead>
         <tr>
           <th>Id</th>
-          <th>Nome</th>
-          <th>CPF</th>
-          <th>Data Inicial</th>
-          <th>Data Final</th>
+          <th>Cliente</th>
+          <th>Valor</th>
+          <th>Data de Vencimento</th>
+          <th>Data de Pagamento</th>
+          <th>Status</th>
           <th>Ações</th>
         </tr>
       </thead>
-      <tbody id="lista-locacoes">
+      <tbody id="lista-pagamentos">
       </tbody>
     </table>
   </div>
   </div>
-  <script src="js/locacoes.js"></script>
+  <script src="js/pagamentos.js"></script>
 
 </body>
 </html>
