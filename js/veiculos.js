@@ -43,11 +43,11 @@ function deletar(id) {
 
 
 function editar(id) {
-  window.location.href = `veiculo-form.html?id=${id}`;
+  window.location.href = `/veiculo-form.html?id=${id}`;
 }
 
 function novo() {
-  window.location.href = `veiculo-form.html`;
+  window.location.href = `/veiculo-form.html`;
 }
 
 

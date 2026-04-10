@@ -1,15 +1,17 @@
-const API_LOCADORA_CLIENTES_URL ="https://api.franciscosensaulas.com//api/v1/locadora/clientes";
+const API_LOCADORA_CLIENTES_URL = "https://api.franciscosensaulas.com//api/v1/locadora/veiculos";
 const tbodyAutores = document.getElementById("tbody-autores");
-function carregarAutores() {
+
+
+function carregarveiculos(lista) {
     fetch(API_LOCADORA_CLIENTES_URL)
         .then(dados => {
             return dados.json();
         })
-        .then(autores => {
-            for (let i = 0; i < autores.length; i++) {
-                const autor = autores[i];
-                criarLinha(autor);
+        let totalVeiculos = lista.API_LOCADORA_CLIENTES_URL.length;
+        let veiculosDisponiveis = lista.API_LOCADORA_CLIENTES_URL.filter(veiculo => veiculo.status === "disponivel").length;
+        let veiculosAlugados = lista.API_LOCADORA_CLIENTES_URL.filter(veiculo => veiculo.status === "alugado").length;
 
-            }
-        })
+        document.getElementById("total-veiculos").textContent = totalVeiculos;
+        document.getElementById("veiculos-disponiveis").textContent = veiculosDisponiveis;
+        document.getElementById("veiculos-alugados").textContent = veiculosAlugados;
 }

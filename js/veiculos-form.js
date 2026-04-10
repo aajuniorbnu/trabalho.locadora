@@ -17,7 +17,7 @@ function salvar() {
         categoriaId: Number(document.getElementById("categoriaId").value),
         combustivel: document.getElementById("combustivel").value,
         status: document.getElementById("status").value,
-        km: Number(document.getElementById("km").value || 0)
+      
     };
 
     if (!payload.modelo || !payload.ano) {
@@ -42,6 +42,10 @@ function cadastrar(payload) {
     .then(() => {
         alert("Cadastrado!");
         voltar();
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Erro ao cadastrar");
     });
 }
 
