@@ -1,4 +1,4 @@
-const API_LOCADORA_SEGUROS_URL = "https://api.franciscosensaulas.com/api/v1/locadora/seguros";
+const API_LOCADORA_SEGUROS_URL = "https://api.franciscosensaulas.com/api/v1/locadora/clientes";
 
 const formSeguro = document.getElementById("form-seguro");
 
@@ -30,27 +30,26 @@ function limparCampos() {
 
 // ---------------- CADASTRAR ----------------
 async function cadastrarSeguro(payload) {
-    try {
-        const response = await fetch(API_LOCADORA_SEGUROS_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-        });
+    fetch(API_LOCADORA_SEGUROS_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
 
-        if (!response.ok) {
-            throw new Error("Erro ao cadastrar seguro");
-        }
-
-        alert("Seguro cadastrado com sucesso!");
-        limparCampos();
-
-    } catch (error) {
-        console.error(error);
-        alert("Erro ao cadastrar seguro.");
+    if (!response.ok) {
+        throw new Error("Erro ao cadastrar seguro");
     }
+
+    alert("Seguro cadastrado com sucesso!");
+    limparCampos();
+
+} catch (error) {
+    console.error(error);
+    alert("Erro ao cadastrar seguro.");
 }
+
 
 // ---------------- EDITAR ----------------
 async function editarSeguro(payload) {

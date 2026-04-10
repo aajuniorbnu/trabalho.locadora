@@ -1,4 +1,4 @@
-const API_LOCADORA_SEGUROS_URL = "https://api.franciscosensaulas.com/api/v1/locadora/seguros";
+const API_LOCADORA_SEGUROS_URL = "https://api.franciscosensaulas.com/api/v1/locadora/clientes";
 
 const tabela = document.getElementById("tabela-seguros");
 

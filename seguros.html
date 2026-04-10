@@ -10,25 +10,25 @@
 
 <body>
 
-  <header>
-  <div class="logo">
-    🚗 Locadora de Veículos
-  </div>
+    <header>
+        <div class="logo">
+            🚗 Locadora de Veículos
+        </div>
 
-  <div class="header-actions">
-    <input class="input-busca" type="text" placeholder="Faça sua Busca">
+        <div class="header-actions">
+            <input class="input-busca" type="text" placeholder="Faça sua Busca">
 
-    <div id="fazer-login">
-      <a href="/login.html" class="btn primary">Login</a>
-    </div>
+            <div id="fazer-login">
+                <a href="/login.html" class="btn primary">Login</a>
+            </div>
 
-    <div id="login-feito" style="display:none;">
-      <span>✅ Logado</span>
-    </div>
+            <div id="login-feito" style="display:none;">
+                <span>✅ Logado</span>
+            </div>
 
-    <button class="btn-tema" onclick="toggleTema()">🌗</button>
-  </div>
-</header>
+            <button class="btn-tema" onclick="toggleTema()">🌗</button>
+        </div>
+    </header>
     <nav class="sidebar">
 
         <a href="/dashboard.html">📊 Home</a>
@@ -39,7 +39,7 @@
 
     </nav>
     <main>
-<!-- Tipo de seguro (básico, completo)
+        <!-- Tipo de seguro (básico, completo)
 ● Valor mensal
 ● Cobertura de terceiros (sim/não)
 ● Assistência 24h (sim/não)
@@ -47,37 +47,37 @@
 ● Status (ativo/vencido)
 ● Observações
 -->
+        <a href="/seguros-form.html">Adicionar Seguro</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                    <th>Cobertura</th>
+                    <th>Assistência</th>
+                    <th>Observações</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-seguros">
+            </tbody>
+        </table>
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>Tipo</th>
-            <th>Valor</th>
-            <th>Status</th>
-            <th>Cobertura</th>
-            <th>Assistência</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody id="tabela-seguros">
-    </tbody>
-</table>
-        
-        
-<script src="/js/seguros.js"></script>
 
-    <script>
-        function toggleTema() {
-            const isDark = document.body.classList.toggle('dark');
-            localStorage.setItem('tema', isDark ? 'dark' : 'light');
-        }
+        <script src="/js/seguros.js"></script>
 
-        (function () {
-            if (localStorage.getItem('tema') === 'dark') {
-                document.body.classList.add('dark');
+        <script>
+            function toggleTema() {
+                const isDark = document.body.classList.toggle('dark');
+                localStorage.setItem('tema', isDark ? 'dark' : 'light');
             }
-        })();
-    </script>
+
+            (function () {
+                if (localStorage.getItem('tema') === 'dark') {
+                    document.body.classList.add('dark');
+                }
+            })();
+        </script>
 </body>
 
 </html>

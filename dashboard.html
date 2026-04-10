@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <title>Locadora PRO</title>
@@ -8,101 +9,103 @@
 
 <body>
 
-<header>
-  <div class="logo">
-    🚗 Locadora de Veículos
-  </div>
-
-  <div class="header-actions">
-    <input class="input-busca" type="text" placeholder="Faça sua Busca">
-
-    <div id="fazer-login">
-      <a href="/login.html" class="btn primary">Login</a>
+  <header>
+    <div class="logo">
+      🚗 Locadora de Veículos
     </div>
 
-    <div id="login-feito" style="display: none;">
-      <span>✅ Logado</span>
+    <div class="header-actions">
+      <input class="input-busca" type="text" placeholder="Faça sua Busca">
+
+      <div id="fazer-login">
+        <a href="/login.html" class="btn primary">Login</a>
+      </div>
+
+      <div id="login-feito" style="display: none;">
+        <span>✅ Logado</span>
+      </div>
+
+      <button class="btn-tema " onclick="toggleTema()">🌗</button>
     </div>
+  </header>
 
-    <button class="btn-tema "   onclick="toggleTema()">🌗</button>
-  </div>
-</header>
-
-<nav class="sidebar">
-  <nav>
-    <a href="/seguros.html">🔐 Seguros</a>
-    <a href="/categorias.html">Categorias</a>
-    <a href="/veiculos.html">Veículos</a>
-    <a href="/locacoes.html">🚗 Locações</a>
+  <nav class="sidebar">
+    <nav>
+      <a href="/seguros.html">🔐 Seguros</a>
+      <a href="/categorias.html">Categorias</a>
+      <a href="/veiculos.html">Veículos</a>
+      <a href="/locacoes.html">🚗 Locações</a>
+      <a href="/clientes.html">👥 Clientes</a>
+    </nav>
   </nav>
-</nav>
 
-<main>
+  <main>
 
-  <div class="page-header">
-    <div>
-      <h1>Dashboard</h1>
-      <p class="page-subtitle">Gerencie categorias e veículos</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <h2>📚 Dados de entrada</h2>
+    <div class="page-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p class="page-subtitle">Gerencie categorias e veículos</p>
+      </div>
     </div>
 
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Total de veiculos</th>
-            <th>Veiculos Disponiveis</th>
-            <th>Veiculos Alugados</th>
-            <th>Ano</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>10</td>
-            <td>5</td>
-            <td>5</td>
-            <td>2023</td>
-          </tr>
-        
-        </tbody>
-      </table>
+    <div class="card">
+      <div class="card-header">
+        <h2>📚 Dados de entrada</h2>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Total de veiculos <p id="total-veiculos">0</p></th>
+              <th>Veiculos Disponiveis <p id="veiculos-disponiveis">0</p></th>
+              <th>Veiculos Alugados <p id="veiculos-alugados">0</p></th>
+              <th>Ano</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10</td>
+              <td>5</td>
+              <td>5</td>
+              <td>2023</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
 
-</main>
+  </main>
 
-<script>
-function toggleTema() {
-  const isDark = document.body.classList.toggle('dark');
-  localStorage.setItem('tema', isDark ? 'dark' : 'light');
-}
+  <script>
+    function toggleTema() {
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem('tema', isDark ? 'dark' : 'light');
+    }
 
-(function () {
-  if (localStorage.getItem('tema') === 'dark') {
-    document.body.classList.add('dark');
-  }
-})();
+    (function () {
+      if (localStorage.getItem('tema') === 'dark') {
+        document.body.classList.add('dark');
+      }
+    })();
 
-const fazerLogin = document.getElementById("fazer-login");
-const loginFeito = document.getElementById("login-feito");
+    const fazerLogin = document.getElementById("fazer-login");
+    const loginFeito = document.getElementById("login-feito");
 
-const logado = localStorage.getItem("logado");
+    const logado = localStorage.getItem("logado");
 
-if (fazerLogin && loginFeito) {
-  if (logado === "true") {
-    fazerLogin.style.display = "none";
-    loginFeito.style.display = "flex";
-  } else {
-    fazerLogin.style.display = "flex";
-    loginFeito.style.display = "none";
-  }
-}
-</script>
+    if (fazerLogin && loginFeito) {
+      if (logado === "true") {
+        fazerLogin.style.display = "none";
+        loginFeito.style.display = "flex";
+      } else {
+        fazerLogin.style.display = "flex";
+        loginFeito.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
+
 </html>
