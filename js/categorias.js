@@ -5,7 +5,9 @@ function salvarCategoria() {
   const nome = document.getElementById("nome").value;
   const descricao = document.getElementById("descricao").value;
 
-  if (!nome) return alert("Nome obrigatório");
+  if (!nome) 
+    return 
+  alert("Nome obrigatório");
 
   const metodo = editandoId ? "PUT" : "POST";
   const url = editandoId ? `${API_CAT}/${editandoId}` : API_CAT;
