@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/locacoes.css">
   <title>Locações</title>
 </head>
+
 <body>
 
-<header>
-  <div class="logo"><span>🚗</span> Locadora</div>
-  <div class="header-actions">
-    <button class="btn-tema" onclick="toggleTema()" id="theme-toggle-btn">
-      <span id="theme-icon">🌙</span> <span id="theme-text">Modo Escuro</span>
-    </button>
-  </div>
-</header>
+  <header>
+    <div class="logo"><span>🚗</span> Locadora</div>
+    <div class="header-actions">
+      <button class="btn-tema" onclick="toggleTema()" id="theme-toggle-btn">
+        <span id="theme-icon">🌙</span> <span id="theme-text">Modo Escuro</span>
+      </button>
+    </div>
+  </header>
 
   <aside class="sidebar">
     <nav>
@@ -27,46 +29,47 @@
     </nav>
   </aside>
 
-<main>
+  <main>
 
-  <div class="page-header">
-    <div>
-      <h1>Locações</h1>
-      <p class="page-subtitle">Cadastro e gerenciamento de locações</p>
+    <div class="page-header">
+      <div>
+        <h1>Locações</h1>
+        <p class="page-subtitle">Cadastro e gerenciamento de locações</p>
+      </div> <a class="btn secondary" href="clientes-form.html"> ➕ Nova Locação</a>
     </div>
-  </div>
     <div class="card">
-    <div class="card-header flex">
-      <h2>
-        <span class="icon-list">📋</span>
-        Locações cadastradas
-      </h2>
+      <div class="card-header flex">
+        <h2>
+          <span class="icon-list">📋</span>
+          Locações cadastradas
+        </h2>
 
-      <div class="table-toolbar">
-        <div class="search-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="search-locacoes" placeholder="Buscar locação...">
+        <div class="table-toolbar">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-locacoes" placeholder="Buscar locação...">
+          </div>
         </div>
       </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Data Inicial</th>
+              <th>Data Final</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista-locacoes">
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Nome</th>
-          <th>CPF</th>
-          <th>Data Inicial</th>
-          <th>Data Final</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody id="lista-locacoes">
-      </tbody>
-    </table>
-  </div>
-  </div>
-  <script src="js/locacoes.js"></script>
+    <script src="js/locacoes.js"></script>
 
 </body>
+
 </html>
