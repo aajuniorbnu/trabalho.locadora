@@ -5,9 +5,10 @@ function salvarCategoria() {
   const nome = document.getElementById("nome").value;
   const descricao = document.getElementById("descricao").value;
 
-  if (!nome) 
-    return 
-  alert("Nome obrigatório");
+  if (!nome) {
+    alert("Nome obrigatório");
+    return;
+  }
 
   const metodo = editandoId ? "PUT" : "POST";
   const url = editandoId ? `${API_CAT}/${editandoId}` : API_CAT;
@@ -19,7 +20,8 @@ function salvarCategoria() {
   })
   .then(() => {
     listarCategorias();
-    editandoId = null;
+    limparCampos();
+    mostrarMensagem("Categoria salva com sucesso!", "sucesso");
   });
 }
 
@@ -33,7 +35,6 @@ function editarCategoria(id) {
     });
 }
 
-
 function deletarCategoria(id) {
   fetch(`${API_CAT}/${id}`, { method: "DELETE" })
     .then(() => listarCategorias());
@@ -44,20 +45,38 @@ function listarCategorias() {
     .then(res => res.json())
     .then(data => {
       const tabela = document.getElementById("tabelaCategorias");
-      tabela.innerHTML = "";
+      let html = "";
+
       data.forEach(categoria => {
-        tabela.innerHTML += `
+        html += `
         <tr>
           <td>${categoria.id}</td>
           <td>${categoria.nome}</td>
           <td>${categoria.descricao}</td>
           <td>
             <button onclick="editarCategoria(${categoria.id})">✏️</button>
-            <button onclick='deletarCategoria(${categoria.id})'>🗑️</button>
+            <button onclick="deletarCategoria(${categoria.id})">🗑️</button>
           </td>
         </tr>`;
       });
+
+      tabela.innerHTML = html;
     });
+}
+
+function limparCampos() {
+  document.getElementById("nome").value = "";
+  document.getElementById("descricao").value = "";
+  editandoId = null;
+}
+
+function mostrarMensagem(texto, tipo) {
+  const div = document.getElementById("mensagem");
+  div.innerHTML = `<div class="alerta alerta-${tipo}">${texto}</div>`;
+
+  setTimeout(() => {
+    div.innerHTML = "";
+  }, 3000);
 }
 
 listarCategorias();
