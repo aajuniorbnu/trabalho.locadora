@@ -4,15 +4,26 @@
 <title>Locadora PRO - Portfólio</title>
 <link rel="stylesheet" href="/css/veiculos-categoria.css">
 </head>
+
 <body>
 
 <header>
   <h1>🚗 Locadora de Veículos</h1>
-  <button onclick="toggleTema()">🌙 / ☀️</button>
+    <div class="busca">
+            <input class="input-busca" type="text" name="busca" placeholder="Faça sua Busca"> 
+
+        </div>
+        <button>
+          <a href="/login.html">Login</a>
+        </button>
+  <button onclick="toggleTema()">🌙 / ☀️</button><!--talvez mudar o simbolo-->
 </header>
 
 <nav class="sidebar">
-  <a href="/categorias.html">Categorias</a>
+ 
+  
+  <a href="/seguros.html">Seguros</a>
+   <a href="/categorias.html">Categorias</a>
   <a href="/veiculos.html">Veículos</a>
   <a href="/locacoes.html">Locações</a>
 
@@ -21,8 +32,55 @@
 <main>
   <h2>Bem-vindo ao sistema</h2>
   <p>Gerencie categorias e veículos </p>
+
+      <div class="section-header">
+              <h2 class="section-title">Livros Recentes</h2>
+            </div>
+            <div class="table-container">
+              <div class="table-responsive">
+                <table class="table" id="table-livros-recentes">
+                  <thead>
+                    <tr>
+                      <th>Titulo</th>
+                      <th>Autor</th>
+                      <th>Categoria</th>
+                      <th>Ano</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody-livros-recentes">
+                    <tr>
+                      <td>A Hora da Estrela</td>
+                      <td>Clarice Lispector</td>
+                      <td>Romance</td>
+                      <td>1977</td>
+                    </tr>
+                    <tr>
+                      <td>O Cortico</td>
+                      <td>Aluisio Azevedo</td>
+                      <td>Naturalismo</td>
+                      <td>1890</td>
+                    </tr>
+                    <tr>
+                      <td>Capitaes da Areia</td>
+                      <td>Jorge Amado</td>
+                      <td>Romance</td>
+                      <td>1937</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 </main>
 
+
+
+
+
+
+
+
+
+
+<script src="/js/dashboard.js"></script>
 <script>
 function toggleTema() {
   const isDark = document.body.classList.toggle('dark');

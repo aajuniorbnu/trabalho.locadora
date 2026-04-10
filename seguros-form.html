@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locadora PRO - Portfólio</title>
+    <link rel="stylesheet" href="/css/veiculos-categoria.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🚗 Locadora de Veículos</h1>
+        <div class="busca">
+            <input class="input-busca" type="text" name="busca" placeholder="Faça sua Busca">
+
+        </div>
+        <button>
+            <a href="/login.html">Login</a>
+        </button>
+        <button onclick="toggleTema()">🌙 / ☀️</button><!--talvez mudar o simbolo-->
+    </header>
+
+    <nav class="sidebar">
+
+        <a href="/dashboard.html">Home</a>
+        <a href="/categorias.html">Categorias</a>
+
+        <a href="/veiculos.html">Veículos</a>
+        <a href="/locacoes.html">Locações</a>
+
+    </nav>
+    <main>
+<!-- Tipo de seguro (básico, completo)
+● Valor mensal
+● Cobertura de terceiros (sim/não)
+● Assistência 24h (sim/não)
+● Contato da seguradora
+● Status (ativo/vencido)
+● Observações
+-->
+        <form action="">
+
+             <label for="seguro-tipo">Seguros</label>
+                <select id="seguro-tipo">
+                    <option value="vazio"></option>
+                    <option value="Básico">Seguro básico</option>
+                    <option value="Completo">Seguro completo</option>
+                </select>
+            
+                <label for="cobertura">Cobertura de terceiros:</label>
+                <select id="cobertura">
+                    <option value="vazio"></option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+                <label for="assistencia">Assistência 24h:</label>
+                <select id="assistencia">
+                    <option value="vazio"></option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+                <label for="status">Status:</label>
+                <select id="status">
+                    <option value="vazio"></option>
+                    <option value="ativo">Ativo</option>
+                    <option value="vencido">Vencido</option>
+                </select>
+
+           
+            <label for="email">email:</label>
+            <input type="email" id="email" name="email" placeholder="">
+            
+           
+        </form>
+        <form action="">
+            
+           
+            
+            <label for="observaçao">Observações:</label>
+            <input type="text" id="observaçao" name="observaçao" placeholder="">
+
+            <label for="contato-seguradora">Contato da seguradora:</label>
+            <input type="number" id="contato-seguradora" name="contato-seguradora" placeholder="99999-9999">
+            
+            <label for="valor-mes">Valor Mensal:</label>
+            <input type="number" id="valor-mes" name="valor-mes" placeholder="">
+            
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
+        
+        
+        
+        
+        
+        
+<script src="/js/seguros-form.js"></script>
+
+    <script>
+        function toggleTema() {
+            const isDark = document.body.classList.toggle('dark');
+            localStorage.setItem('tema', isDark ? 'dark' : 'light');
+        }
+
+        (function () {
+            if (localStorage.getItem('tema') === 'dark') {
+                document.body.classList.add('dark');
+            }
+        })();
+    </script>
+</body>
+
+</html>
