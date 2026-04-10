@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/conta.css">
+    <title>Minha Conta - Locadora</title>
+</head>
+<body>
+    
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🚗 Admin</h2>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">Dashboard</a>
+                <a href="categorias.html" class="menu-item">Categorias</a>
+                <a href="veiculos.html" class="menu-item">Veículos</a>
+                <a href="locacoes.html" class="menu-item">Locações</a>
+                <a href="pagamentos.html" class="menu-item">Pagamentos</a>
+                <a class="menu-item active">Minha Conta</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button id="sair">Sair da conta</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Configurações da Conta</h1>
+                <p>Gerencie seus dados de administrador e preferências do sistema.</p>
+            </header>
+
+            <div class="cards-grid">
+                
+                <div class="admin-card profile-card">
+                    <div class="avatar-placeholder">AS</div>
+                    <div class="profile-titles">
+                        <h3>Admin Sistema</h3>
+                        <span>Gerente Geral</span>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3>Dados Pessoais</h3>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" value="Admin Sistema" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="cargo">Cargo</label>
+                            <input type="text" id="cargo" value="Gerente Geral" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="email">E-mail Profissional</label>
+                            <input type="email" id="email" value="batatinha@gmail.com" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" id="telefone" value="(00) 00000-0000" readonly>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-primary" disabled>Salvar Alterações</button>
+                </div>
+
+                <div class="admin-card">
+                    <h3>Segurança</h3>
+                    <div class="form-group">
+                        <label for="senha-atual">Senha Atual</label>
+                        <input type="password" id="senha-atual" placeholder="••••••••" readonly>
+                    </div>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="nova-senha">Nova Senha</label>
+                            <input type="password" id="nova-senha" placeholder="••••••••" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirma-senha">Confirmar Nova Senha</label>
+                            <input type="password" id="confirma-senha" placeholder="••••••••" readonly>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-primary" disabled>Atualizar Senha</button>
+                </div>
+
+                <div class="admin-card">
+                    <h3>Preferências do Sistema</h3>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="alert-locacao" checked disabled>
+                        <label for="alert-locacao">Receber e-mail ao abrir nova locação</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="alert-atraso" checked disabled>
+                        <label for="alert-atraso">Receber e-mail sobre veículos em atraso</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="alert-manutencao" disabled>
+                        <label for="alert-manutencao">Notificar sobre revisões pendentes da frota</label>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/conta.js"></script>
+</body>
+</html>

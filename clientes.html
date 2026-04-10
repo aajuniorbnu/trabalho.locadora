@@ -3,191 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/locacoes.css"> <!-- usa o MESMO CSS -->
+  <link rel="stylesheet" href="css/clientes.css">
   <title>Clientes</title>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">🚗 Locadora</div>
+  <div class="logo"><span>🚗</span> Locadora</div>
   <div class="header-actions">
-    <button class="btn-tema" id="theme-toggle">
-      <span id="theme-icon">🌙</span>
-      <span id="theme-text">Escuro</span>
+    <button class="btn-tema" onclick="toggleTema()" id="theme-toggle-btn">
+      <span id="theme-icon">🌙</span> <span id="theme-text">Modo Escuro</span>
     </button>
   </div>
 </header>
 
 <aside class="sidebar">
   <nav>
-    <a href="#">📊 Dashboard</a>
-    <a href="#">🚗 Locações</a>
-    <a href="#" class="active">👤 Clientes</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="locacoes.html">🚗 Locações</a>
+    <a href="clientes.html" class="active">👤 Clientes</a>
   </nav>
 </aside>
 
 <main>
-
-  <!-- HEADER -->
   <div class="page-header">
     <div>
       <h1>Clientes</h1>
       <p class="page-subtitle">Cadastro e gerenciamento de clientes</p>
     </div>
-    <button class="btn secondary">📤 Exportar</button>
-  </div>
-
-  <!-- FORM -->
-  <div class="card">
-    <div class="card-header">
-      <h2>
-        <span class="icon-plus">➕</span>
-        Novo Cliente
-      </h2>
-      <button class="btn-clear">✕ Limpar</button>
-    </div>
-
-    <form class="form-grid">
-
-      <div class="form-group">
-        <label>Nome <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="text" placeholder="Ex: João Silva">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>CPF <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="text" placeholder="000.000.000-00">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Data de Nascimento <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="date">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Telefone <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="text" placeholder="(00) 00000-0000">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>E-mail <span class="required">*</span></label>
-        <div class="input-wrap">
-          <input type="email" placeholder="exemplo@email.com">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Status <span class="required">*</span></label>
-        <div class="input-wrap">
-          <select>
-            <option value="">Selecione...</option>
-            <option>Ativo</option>
-            <option>Inativo</option>
-          </select>
-        </div>
-      </div>
-
-    </form>
-
-    <div class="card-footer">
-      <div class="form-actions">
-        <button class="btn primary">
-          💾 Salvar Cliente
-        </button>
-        <button class="btn secondary">Cancelar</button>
-      </div>
-    </div>
-
+    <a class="btn secondary" href="clientes-form.html"> ➕ Novo Cliente</a>
   </div>
 
   <!-- TABELA -->
   <div class="card">
-    <div class="card-header flex">
+    <div class="card-header">
       <h2>
         <span class="icon-list">📋</span>
         Clientes cadastrados
       </h2>
+    </div>
 
-      <div class="table-toolbar">
-        <div class="search-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Buscar cliente...">
-        </div>
-
-        <select>
-          <option value="">Todos</option>
-          <option>Ativo</option>
-          <option>Inativo</option>
-        </select>
+    <div class="table-toolbar">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Buscar cliente...">
       </div>
     </div>
 
-    <div class="table-wrap">
+    <div class="table-wrap table-aling">
       <table>
         <thead>
           <tr>
+            <th>Id</th>
             <th>Nome</th>
             <th>CPF</th>
-            <th>Telefone</th>
-            <th>E-mail</th>
-            <th>Status</th>
             <th>Ações</th>
           </tr>
         </thead>
-
-        <tbody>
-
-          <tr>
-            <td>João Silva</td>
-            <td>123.456.789-00</td>
-            <td>(11) 98888-7777</td>
-            <td>joao@email.com</td>
-            <td><span class="status-badge ativo">● Ativo</span></td>
-            <td>
-              <div class="actions">
-                <button class="btn-icon edit">✏️</button>
-                <button class="btn-icon del">🗑️</button>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Maria Santos</td>
-            <td>987.654.321-11</td>
-            <td>(21) 97777-6666</td>
-            <td>maria@email.com</td>
-            <td><span class="status-badge ativo">● Ativo</span></td>
-            <td>
-              <div class="actions">
-                <button class="btn-icon edit">✏️</button>
-                <button class="btn-icon del">🗑️</button>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Ana Costa</td>
-            <td>111.222.333-44</td>
-            <td>(85) 95555-4444</td>
-            <td>ana@email.com</td>
-            <td><span class="status-badge finalizado">● Inativo</span></td>
-            <td>
-              <div class="actions">
-                <button class="btn-icon edit">✏️</button>
-                <button class="btn-icon del">🗑️</button>
-              </div>
-            </td>
-          </tr>
-
+        <tbody id="tbody-clientes">
         </tbody>
       </table>
     </div>
@@ -195,7 +69,7 @@
 
 </main>
 
-<script src="js/theme.js"></script>
+<script src="js/cliente.js"></script>
 
 </body>
 </html>

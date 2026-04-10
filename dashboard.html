@@ -1,9 +1,11 @@
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
-<title>Locadora PRO - Portfólio</title>
-<link rel="stylesheet" href="/css/veiculos-categoria.css">
+  <meta charset="UTF-8">
+  <title>Locadora PRO - Portfólio</title>
+  <link rel="stylesheet" href="/css/veiculos-categoria.css">
 </head>
+
 
 <body>
 
@@ -27,7 +29,7 @@
   <a href="/veiculos.html">Veículos</a>
   <a href="/locacoes.html">Locações</a>
 
-</nav>
+  </nav>
 
 <main>
   <h2>Bem-vindo ao sistema</h2>
@@ -87,12 +89,23 @@ function toggleTema() {
   localStorage.setItem('tema', isDark ? 'dark' : 'light');
 }
 
-(function(){
-  if(localStorage.getItem('tema') === 'dark') {
-    document.body.classList.add('dark');
-  }
-})();
-</script>
+    (function () {
+      if (localStorage.getItem('tema') === 'dark') {
+        document.body.classList.add('dark');
+      }
+    })();
+
+    const logado = localStorage.getItem("logado");
+
+    if (logado === "true") {
+      document.getElementById("fazer-login").style.display = "none";
+      document.getElementById("login-feito").style.display = "flex";
+    } else {
+      document.getElementById("fazer-login").style.display = "flex";
+      document.getElementById("login-feito").style.display = "none";
+    }
+  </script>
 
 </body>
+
 </html>

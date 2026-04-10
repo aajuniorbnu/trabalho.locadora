@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #F0ECE3; /* Mantendo o fundo definido */
+    color: #1e293b;
+}
+
+/* Layout Principal */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Menu Lateral (Sidebar) --- */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+}
+
+.sidebar-header h2 {
+    font-size: 20px;
+    color: #1e293b;
+    margin-bottom: 32px;
+    padding-left: 12px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #64748b;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #f8fafc;
+    color: #2563eb;
+}
+
+.menu-item.active {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Estilização aplicada ao ID "#sair" para parecer um botão de perigo (logout) */
+#sair {
+    width: 100%;
+    background-color: #fee2e2;
+    color: #ef4444;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#sair:hover {
+    background-color: #fca5a5;
+    color: #991b1b;
+}
+
+/* --- Conteúdo Principal --- */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    max-width: 1000px;
+}
+
+.page-header {
+    margin-bottom: 32px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* Grade de Cartões */
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.admin-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.admin-card h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 12px;
+}
+
+/* Cartão Específico de Perfil */
+.profile-card {
+    grid-column: 1 / -1; /* Faz o perfil ocupar a linha inteira */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-card h3 {
+    border-bottom: none;
+    margin-bottom: 4px;
+    padding-bottom: 0;
+    font-size: 20px;
+}
+
+.avatar-placeholder {
+    width: 64px;
+    height: 64px;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.profile-titles span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* --- Formulários dentro dos cartões --- */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.form-group-row {
+    display: flex;
+    gap: 16px;
+}
+
+label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase; 
+    color: #64748b; 
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    font-size: 14px;
+    color: #0f172a;
+    outline: none;
+}
+
+/* Deixa os inputs com aparência de desativados já que é um placeholder */
+input:read-only {
+    background-color: #f1f5f9;
+    color: #64748b;
+    cursor: not-allowed;
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    text-transform: none;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 0;
+    color: #334155;
+}
+
+/* Botões Placeholders */
+.btn-primary {
+    background-color: #94a3b8; /* Cor cinza para indicar que está inativo */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: not-allowed;
+    margin-top: 8px;
+}
