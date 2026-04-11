@@ -1,7 +1,6 @@
 const formPagamento = document.getElementById("form-pagamento");
 const campoIdLocacao = document.getElementById("campo-id-locacao");
 const campoCliente = document.getElementById("campo-cliente");
-const campoValor = document.getElementById("campo-valor");
 const campoDataVencimento = document.getElementById("campo-data-vencimento");
 const campoDataPagamento = document.getElementById("campo-data-pagamento");
 
@@ -14,7 +13,7 @@ botaoLimpar.addEventListener("click", limparCampos);
 formPagamento.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    if (!campoIdLocacao.value || !campoCliente.value || !campoValor.value || !campoDataVencimento.value) {
+    if (!campoIdLocacao.value || !campoCliente.value || !campoDataVencimento.value) {
         alert("Preencha os campos obrigatórios");
         return;
     }
@@ -30,28 +29,33 @@ formPagamento.addEventListener("submit", (event) => {
         novoId = pagamentos.length + 1;
     }
 
-    let pagamento = {
-        id: idParaEditar || novoId,
-        idLocacao: campoIdLocacao.value,
-        cliente: campoCliente.value,
-        valor: campoValor.value,
-        dataVencimento: campoDataVencimento.value,
-        dataPagamento: campoDataPagamento.value
-    };
+    let id;
+    if (idParaEditar) {
+        id = idParaEditar;
+    } else {
+        id = novoId;
+    }
 
     if (idParaEditar) {
-        let novosPagamentos = [];
         for (let i = 0; i < pagamentos.length; i++) {
             if (pagamentos[i].id == idParaEditar) {
-                novosPagamentos.push(pagamento);
-            } else {
-                novosPagamentos.push(pagamentos[i]);
+                pagamentos[i].id = id;
+                pagamentos[i].idLocacao = campoIdLocacao.value;
+                pagamentos[i].cliente = campoCliente.value;
+                pagamentos[i].dataVencimento = campoDataVencimento.value;
+                pagamentos[i].dataPagamento = campoDataPagamento.value;
             }
         }
-        pagamentos = novosPagamentos;
         alert("Pagamento atualizado com sucesso");
     } else {
-        pagamentos.push(pagamento);
+        let novoPagamento = {};
+        novoPagamento.id = id;
+        novoPagamento.idLocacao = campoIdLocacao.value;
+        novoPagamento.cliente = campoCliente.value;
+        novoPagamento.dataVencimento = campoDataVencimento.value;
+        novoPagamento.dataPagamento = campoDataPagamento.value;
+        
+        pagamentos.push(novoPagamento);
         alert("Pagamento cadastrado com sucesso");
     }
 
@@ -77,16 +81,19 @@ function carregarPagamentoParaEditar() {
     if (pagamento) {
         campoIdLocacao.value = pagamento.idLocacao;
         campoCliente.value = pagamento.cliente;
-        campoValor.value = pagamento.valor;
         campoDataVencimento.value = pagamento.dataVencimento;
-        campoDataPagamento.value = pagamento.dataPagamento || "";
+        
+        if (pagamento.dataPagamento) {
+            campoDataPagamento.value = pagamento.dataPagamento;
+        } else {
+            campoDataPagamento.value = "";
+        }
     }
 }
 
 function limparCampos() {
     campoIdLocacao.value = "";
     campoCliente.value = "";
-    campoValor.value = "";
     campoDataVencimento.value = "";
     campoDataPagamento.value = "";
 }
