@@ -12,7 +12,9 @@ function carregarPagamentos() {
         listaPagamentos = [];
     }
     
-    listaPagamentos.forEach(pagamento => criarLinha(pagamento));
+    for (let i = 0; i < listaPagamentos.length; i++) {
+        criarLinha(listaPagamentos[i]);
+    }
     registrarEventosExcluir();
 }
 
