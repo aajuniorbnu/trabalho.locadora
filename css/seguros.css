@@ -358,6 +358,27 @@ input, select {
 /* ===========================
    BUTTONS
 =========================== */
+.btn-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #f8f6f2;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* editar */
+.btn-icon.edit:hover {
+  background: #fff3cd;
+  border-color: #f59e0b;
+}
+
+/* excluir */
+.btn-icon.del:hover {
+  background: #fde8e4;
+  border-color: var(--danger);
+}
 .btn {
   display: inline-flex;
   align-items: center;
@@ -411,20 +432,39 @@ input, select {
   color: var(--danger);
 }
  
-/* ===========================
-   TABLE
-=========================== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.card-header {
+  background: #f1f1f1;
+}
+.card-header {
+  padding: 18px 20px;
+  background: #f5f5f5;
+  border-bottom: 1px solid var(--border);
+}
+/* =========================
+   TABELA ESTILO CARD (PADRÃO IMAGEM)
+========================= */
+
 .table-wrap {
+  width: 100%;
   overflow-x: auto;
 }
- 
+
+/* remove borda duplicada */
 table {
   width: 100%;
   border-collapse: collapse;
 }
- 
+
+/* cabeçalho */
 thead th {
-  padding: 16px 24px;
+  padding: 14px 20px;
   text-align: left;
   font-size: 12px;
   font-weight: 700;
@@ -433,24 +473,34 @@ thead th {
   background: var(--bg-table-head);
   color: var(--text-thead);
 }
- 
+
+/* linhas */
 tbody tr {
   border-bottom: 1px solid var(--border-row);
-  transition: background 0.2s;
+  transition: all 0.2s ease;
 }
 
+/* hover suave */
 tbody tr:hover {
   background: var(--bg-active);
 }
- 
+
+/* células */
 tbody td {
-  padding: 16px 24px;
-  color: var(--text-primary);
-}
-.btn {
-  font-family: var(--font-main);
+  padding: 16px 20px;
+  font-size: 14px;
 }
 
+/* REMOVE zebra (igual imagem) */
+tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+/* coluna de ações */
+td:last-child {
+  text-align: center;
+  white-space: nowrap;
+}
 /* ===========================
    RESPONSIVE
 =========================== */

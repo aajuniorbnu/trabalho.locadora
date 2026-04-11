@@ -54,13 +54,11 @@ function listarCategorias() {
           <td>${categoria.nome}</td>
           <td>${categoria.descricao}</td>
           <td>
-            <button onclick="editarCategoria(${categoria.id})">✏️</button>
-            <button onclick="deletarCategoria(${categoria.id})">🗑️</button>
+            <button class="btn-icon" onclick="editarCategoria(${categoria.id})">✏️</button>
+            <button class="btn-icon" onclick="deletarCategoria(${categoria.id})">🗑️</button>
           </td>
         </tr>`;
-      });
-
-      tabela.innerHTML = html;
+      });      tabela.innerHTML = html;
     });
 }
 

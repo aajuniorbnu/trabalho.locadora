@@ -23,13 +23,13 @@ function listarVeiculos() {
                         <td>${veiculo.ano}</td>
                         <td>${veiculo.categoria ? veiculo.categoria.nome : "-"}</td>
                         <td>
-                            <span class="status-badge s-${veiculo.status}">
+                            <span class="status-badgce s-${veiculo.status}">
                                 ${veiculo.status}
                             </span>
                         </td>
                         <td>
-                            <button onclick="editar(${veiculo.id})">✏️</button>
-                            <button onclick="deletar(${veiculo.id})">🗑</button>
+                            <button class="btn-icon" onclick="editar(${veiculo.id})">✏️</button>
+                            <button class="btn-icon" onclick="deletar(${veiculo.id})">🗑️</button>
                         </td>
                     </tr>
                 `;

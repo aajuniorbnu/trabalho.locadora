@@ -51,7 +51,7 @@ body.dark {
     --bg-page: #111820;
     --bg-sidebar: #192430;
     --bg-card: #1e2d3d;
-    --bg-header: #111820;
+     --bg-header:#0f172a;
     --bg-input: #1a2636;
     --bg-table-head: #111820;
     --bg-row-alt: #192430;
@@ -222,24 +222,24 @@ header {
   align-items: center;
   gap: 15px;
 }
-
 .btn-tema {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
-  padding: 6px 12px;
-  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
   font-size: 12px;
-  font-family: var(--font-main);
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: all 0.2s;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
 
 .btn-tema:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-1px);
 }
 
 body.dark .btn-tema {

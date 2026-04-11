@@ -265,6 +265,10 @@ body.dark .btn-icon.del:hover {
   color: var(--text-active);
   font-weight: 600;
 }
+.btn {
+  font-family: var(--font-main);
+}
+
  
 /* ===========================
    MAIN CONTENT
@@ -335,6 +339,7 @@ main {
 }
 
 .btn-clear {
+  font-family: var(--font-main);
   color: var(--text-muted);
   font-size: 13px;
   font-weight: 600;

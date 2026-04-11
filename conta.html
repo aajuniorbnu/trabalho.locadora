@@ -14,19 +14,22 @@
                 <h2>🚗 Admin</h2>
             </div>
             
-            <nav class="sidebar-menu">
-                <a href="dashboard.html" class="menu-item">Dashboard</a>
-                <a href="categorias.html" class="menu-item">Categorias</a>
-                <a href="veiculos.html" class="menu-item">Veículos</a>
-                <a href="locacoes.html" class="menu-item">Locações</a>
-                <a href="pagamentos.html" class="menu-item">Pagamentos</a>
-                <a class="menu-item active">Minha Conta</a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <button id="sair">Sair da conta</button>
-            </div>
-        </aside>
+    <aside class="sidebar">
+        <nav>
+        <a href="dashboard.html">📊 Dashboard</a>
+        <a href="locacoes.html" >🚗 Locações</a>
+        <a href="veiculos.html">🚙 Veículos</a>
+        <a href="clientes.html">👤 Clientes</a>
+        <a href="categorias.html" >🏷️ Categorias</a>
+        <a href="seguros.html">🛡️ Seguros</a>
+        <a href="pagamentos.html">💳 Pagamentos</a>
+        <a href="conta.html"class="active">⚙️ Conta</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="btn-logout btn1" id="sair">Sair da conta</button>      
+         </div>
+    </aside>
+</aside>
 
         <main class="main-content">
             <header class="page-header">
@@ -66,7 +69,7 @@
                             <input type="text" id="telefone" value="(00) 00000-0000" readonly>
                         </div>
                     </div>
-                    <button type="button" class="btn-primary" disabled>Salvar Alterações</button>
+                    <button type="button" class="btn-primary btn1" disabled>Salvar Alterações</button>
                 </div>
 
                 <div class="admin-card">
@@ -85,7 +88,7 @@
                             <input type="password" id="confirma-senha" placeholder="••••••••" readonly>
                         </div>
                     </div>
-                    <button type="button" class="btn-primary" disabled>Atualizar Senha</button>
+                    <button type="button" class="btn-primary btn1" disabled>Atualizar Senha</button>
                 </div>
 
                 <div class="admin-card">

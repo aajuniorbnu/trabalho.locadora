@@ -26,8 +26,8 @@ async function listarSeguros() {
                 <td>${seguro.assistencia || ""}</td>
                 <td>${seguro.observacoes || ""}</td>
                 <td>
-                    <button onclick="editar(${seguro.id})">✏️</button>
-                    <button onclick="excluir(${seguro.id})">🗑️</button>
+                    <button class="btn-icon" onclick="editar(${seguro.id})">✏️</button>
+                    <button class="btn-icon" onclick="excluir(${seguro.id})">🗑️</button>
                 </td>
             `;
 

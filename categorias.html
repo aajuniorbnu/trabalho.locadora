@@ -3,14 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Categorias</title>
-<link rel="stylesheet" href="../css/veiculos-categoria.css">
+<link rel="stylesheet" href="css/categorias.css">
 </head>
 <body>
 
 <header>
   <h1>🚗 Locadora de Veículos</h1>
-  <button onclick="toggleTema()">🌙 / ☀️</button>
+  <button class="btn-tema" onclick="toggleTema()" id="theme-toggle-btn">
+      <span id="theme-icon">🌙 / ☀️</span>
+  </button>
 </header>
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="locacoes.html" >🚗 Locações</a>
+      <a href="veiculos.html">🚙 Veículos</a>
+      <a href="clientes.html">👤 Clientes</a>
+      <a href="categorias.html"class="active">🏷️ Categorias</a>
+      <a href="seguros.html">🛡️ Seguros</a>
+      <a href="pagamentos.html">💳 Pagamentos</a>
+      <a href="conta.html">⚙️ Conta</a>
+    </nav>
+  </aside>
 
 <main>
   <h2>Categorias</h2>
@@ -23,17 +37,19 @@
 
   <div id="mensagem"></div>
 
+<div class="table-wrap">   
   <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Descrição</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody id="tabelaCategorias"></tbody>
-  </table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaCategorias"></tbody>
+    </table>
+  </div>
 </main>
 
 <script>

@@ -1,86 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locadora PRO - Portfólio</title>
-    <link rel="stylesheet" href="/css/veiculos-categoria.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguros</title>
+<link rel="stylesheet" href="/css/seguros.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            🚗 Locadora de Veículos
-        </div>
+<header>
+  <div class="logo">🚗 Locadora de Veículos</div>
 
-        <div class="header-actions">
-            <input class="input-busca" type="text" placeholder="Faça sua Busca">
+  <div class="header-actions">
+    <input class="input-busca" type="text" placeholder="Faça sua Busca">
+    <a href="/login.html" class="btn primary">Login</a>
+    <button class="btn-tema" onclick="toggleTema()">🌗</button>
+  </div>
+</header>
 
-            <div id="fazer-login">
-                <a href="/login.html" class="btn primary">Login</a>
-            </div>
-
-            <div id="login-feito" style="display:none;">
-                <span>✅ Logado</span>
-            </div>
-
-            <button class="btn-tema" onclick="toggleTema()">🌗</button>
-        </div>
-    </header>
-    <nav class="sidebar">
-
-        <a href="/dashboard.html">📊 Home</a>
-        <a href="/categorias.html">Categorias</a>
-
-        <a href="/veiculos.html">Veículos</a>
-        <a href="/locacoes.html">🚗 Locações</a>
-
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="locacoes.html" >🚗 Locações</a>
+      <a href="veiculos.html">🚙 Veículos</a>
+      <a href="clientes.html" >👤 Clientes</a>
+      <a href="categorias.html">🏷️ Categorias</a>
+      <a href="seguros.html" class="active" >🛡️ Seguros</a>
+      <a href="pagamentos.html">💳 Pagamentos</a>
+      <a href="conta.html">⚙️ Conta</a>
     </nav>
-    <main>
-        <!-- Tipo de seguro (básico, completo)
-● Valor mensal
-● Cobertura de terceiros (sim/não)
-● Assistência 24h (sim/não)
-● Contato da seguradora
-● Status (ativo/vencido)
-● Observações
--->
-       
+  </aside>
 
+<main>
 
-        <table >
-            <thead>
-                <tr>
-                    <th>Tipo</th>
-                    <th>Valor</th>
-                    <th>Status</th>
-                    <th>Cobertura terceiros</th>
-                    <th>Assistência 24h</th>
-                    <th>Observações</th>
-                    <th> <a href="/seguros-form.html">Adicionar Seguro</a></th>
-                </tr>
-            </thead>
-            <tbody id="tabela-seguros">
-            </tbody>
-        </table>
+<div class="card">
+  <div class="card-header">
+    <h2>📋 Veículos cadastrados</h2>
+  </div>
+  <div class="table-wrap">
+    <table>
+     <table>
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Status</th>
+          <th>Cobertura</th>
+          <th>Assistência</th>
+          <th>Observações</th>
+          <th><a href="/seguros-form.html">+ Adicionar</a></th>
+        </tr>
+    </table>
+  </div>
+</div>
 
+      <tbody id="tabela-seguros"></tbody>
+    </table>
+  </div>
 
-        <script src="/js/seguros.js"></script>
+</main>
 
-        <script>
-            function toggleTema() {
-                const isDark = document.body.classList.toggle('dark');
-                localStorage.setItem('tema', isDark ? 'dark' : 'light');
-            }
+<script>
+function toggleTema(){
+  document.body.classList.toggle("dark");
+}
+</script>
 
-            (function () {
-                if (localStorage.getItem('tema') === 'dark') {
-                    document.body.classList.add('dark');
-                }
-            })();
-        </script>
 </body>
-
 </html>
