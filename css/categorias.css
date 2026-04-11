@@ -84,6 +84,9 @@ body.dark {
   margin: 0; 
   padding: 0; 
 }
+.nome{
+  font-size: 18px;
+}
  
 body {
   font-family: var(--font-main);
@@ -358,7 +361,7 @@ h2 {
 }
  
 .page-header h1 {
-  font-size: 28px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.025em;

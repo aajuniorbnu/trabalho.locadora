@@ -9,7 +9,7 @@
 <body>
 
 <header>
-  <div class="logo"><span>🚗</span> Locadora</div>
+  <div class="logo">🚗<span id="header-text">Locadora de Veículos</span></div>
   <div class="header-actions">
     <button class="btn-tema" onclick="toggleTema()" id="theme-toggle-btn">
       <span id="theme-icon">🌙</span> <span id="theme-text">Modo Escuro</span>
@@ -39,27 +39,12 @@
     </div>
     <a class="btn secondary" href="pagamentos-form.html"> ➕ Novo Pagamento</a>
   </div>
-    <div class="card">
+  <div class="card">
     <div class="card-header flex">
       <h2>
         <span class="icon-list">💰</span>
         Pagamentos registrados
       </h2>
-
-      <div class="table-toolbar">
-        <div class="search-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="search-pagamentos" placeholder="Buscar pagamento...">
-        </div>
-        <div class="filter-wrap">
-          <select id="filter-status" class="filter-select">
-            <option value="">Status</option>
-            <option value="pago">✅ Pago</option>
-            <option value="pendente">⏳ Pendente</option>
-            <option value="atrasado">❌ Atrasado</option>
-          </select>
-        </div>
-      </div>
     </div>
     <div class="table-wrap">
     <table>
